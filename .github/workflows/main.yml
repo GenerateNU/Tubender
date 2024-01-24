@@ -1,0 +1,58 @@
+name: Build 
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm install
+
+      - name: Build frontend
+        working-directory: frontend
+        run: npm run build
+
+      - name: Run frontend tests (if applicable)
+        working-directory: frontend
+        run: npm test
+        
+  backend:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install CMake
+      run: sudo apt-get install -y cmake
+
+    - name: Install OCCT dependencies
+      run: sudo apt-get install -y libfreetype6-dev libgl2ps-dev libx11-dev libxt-dev libxmu-dev libxi-dev
+
+    - name: Download and extract OCCT
+      run: |
+        mkdir occt
+        cd occt
+        wget https://github.com/tpaviot/oce/releases/download/official-upstream-packages/opencascade-7.5.3.tgz
+        tar -xzf opencascade-7.5.3.tgz
+
+    - name: Build backend with OCCT
+      run: |
+        mkdir build
+        cd build
+        cmake -DOpenCASCADE_DIR=../occt/opencascade-7.5.3 ..
+        make
