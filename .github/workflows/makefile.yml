@@ -1,0 +1,25 @@
+name: Backend Build using Cmake
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - feature/*
+  pull_request:
+    branches:
+      - main
+      - dev
+      - feature/*
+
+jobs:
+  build_macos:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: make
+        working-directory: ./backend/build
