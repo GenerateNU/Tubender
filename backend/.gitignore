@@ -1,3 +1,1 @@
-build/cad_to_gcode
-build/cmake*
-build/make*
+build/*
