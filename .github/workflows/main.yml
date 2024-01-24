@@ -1,9 +1,14 @@
-name: Build 
+name: Tubender Build 
 
 on:
   push:
     branches:
       - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
 
 jobs:
   frontend:
@@ -11,12 +16,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 20
 
       - name: Install frontend dependencies
         working-directory: frontend
@@ -31,10 +36,22 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Install CMake
       run: sudo apt-get install -y cmake
 
     - name: Install OCCT dependencies
       run: sudo apt-get install -y libfreetype6-dev libgl2ps-dev libx11-dev libxt-dev libxmu-dev libxi-dev
+
+    - name: Create build directory
+      working-directory: backend
+      run: mkdir build
+
+    - name: Cmake Build
+      working-directory: backend/build
+      run: cmake ..
+    
+    - name: Build Backend Project
+      working-directory: backend/build
+      run: make

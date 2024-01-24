@@ -1,3 +1,0 @@
-/Users/muneerlalji/Desktop/Tubender/backend/build/CMakeFiles/cad_to_gcode.dir
-/Users/muneerlalji/Desktop/Tubender/backend/build/CMakeFiles/edit_cache.dir
-/Users/muneerlalji/Desktop/Tubender/backend/build/CMakeFiles/rebuild_cache.dir
