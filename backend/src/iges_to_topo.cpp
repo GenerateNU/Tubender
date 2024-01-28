@@ -37,12 +37,10 @@ int main(int argc, char* argv[]) {
         } else {
             std::cout << "Shape is null." << std::endl;
         }
-        // Continue with further processing or display of the shape
     } catch (const std::exception& e) {
-        // Handle the exception (display an error message, log, etc.)
         std::cerr << e.what() << std::endl;
-        return 1; // Return a non-zero value to indicate an error
+        return 1; // Return 1 for error
     }
 
-    return 0; // Return 0 to indicate successful execution
+    return 0; // Return 0 for success
 }
