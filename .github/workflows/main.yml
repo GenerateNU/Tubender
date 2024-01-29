@@ -50,7 +50,7 @@ jobs:
 
     - name: Cmake Build
       working-directory: backend/build
-     run: cmake -DCMAKE_PREFIX_PATH=/usr/local/Cellar/opencascade/7.7.2_2 ..
+      run: cmake ..
     
     - name: Build Backend Project
       working-directory: backend/build
