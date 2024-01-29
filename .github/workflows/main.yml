@@ -41,6 +41,9 @@ jobs:
     - name: Install CMake
       run: sudo apt-get install -y cmake
 
+    - name: Install OpenCASCADE dependencies
+      run: sudo apt-get install -y libopencascade-dev
+
     - name: Install OCCT dependencies
       run: sudo apt-get install -y libfreetype6-dev libgl2ps-dev libx11-dev libxt-dev libxmu-dev libxi-dev
 
@@ -50,7 +53,7 @@ jobs:
 
     - name: Cmake Build
       working-directory: backend/build
-      run: cmake ..
+      run: cmake ../..
     
     - name: Build Backend Project
       working-directory: backend/build
