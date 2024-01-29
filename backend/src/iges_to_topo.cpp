@@ -15,7 +15,6 @@ TopoDS_Shape read_iges(const char* filename)
         std::cerr << "Error: Unable to transfer the content to TopoDS_Shape." << std::endl;
         throw std::runtime_error("Error: Unable to transfer the content to TopoDS_Shape.");
     }
-    reader.TransferRoots();
     TopoDS_Shape shape = reader.OneShape();
     return shape;
 }
@@ -28,6 +27,7 @@ int main(int argc, char* argv[]) {
     }
 
     const char* igesFileName = argv[1];
+    std::cout <<igesFileName;
 
     try {
         // Call the function to read IGES file and get TopoDS_Shape
