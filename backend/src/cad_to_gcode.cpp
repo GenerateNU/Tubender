@@ -1,5 +1,4 @@
 #include <iostream>
-#include <TopoDS_Shape.hxx>
 #include <STEPControl_Reader.hxx> 
 #include <TopoDS_Shape.hxx> 
 #include <BRepTools.hxx> 
@@ -7,8 +6,7 @@
 #include <string>
 using namespace std;
 
-
-TopoDS_Shape step_conversion(const string& filename) { 
+TopoDS_Shape read_step(const string& filename) { 
     STEPControl_Reader reader; 
     IFSelect_ReturnStatus status = reader.ReadFile(filename.c_str());
 
@@ -17,18 +15,16 @@ TopoDS_Shape step_conversion(const string& filename) {
         return TopoDS_Shape();
     }
 
-    IFSelect_PrintCount mode = IFSelect_ItemsByEntity;
-    reader.PrintCheckLoad(true, mode); // true to print the load status
-
-    Standard_Integer NbRoots = reader.NbRootsForTransfer();
-    cout << "Number of roots in STEP file: " << NbRoots << endl;
-
-    Standard_Integer NbTrans = reader.TransferRoots();
-    cout << "STEP roots transferred: " << NbTrans << endl;
-
+    cout << "Number of roots in STEP file: " << reader.NbRootsForTransfer() << endl;
+    cout << "STEP roots transferred: " << reader.TransferRoots() << endl;
     cout << "Number of resulting shapes is: " << reader.NbShapes() << endl;
 
     TopoDS_Shape result = reader.OneShape();
+
+    if (result.IsNull()) {
+        cout << "Error: The resulting shape is invalid." << endl;
+        return TopoDS_Shape();
+    }
 
     return result;
 }
@@ -38,6 +34,9 @@ int main(int argc, char* argv[]) {
     bool eq = shape.IsEqual(TopoDS_Shape());
     std::cout << eq << std::endl;
 
-    string filename = "Full_Frame.STEP";
-    TopoDS_Shape step_shape = step_conversion(filename);
+    string full_frame_filename = "Full_Frame.STEP";
+    TopoDS_Shape full_frame_shape = read_step(full_frame_filename);
+
+    string rrh_filename = "RRH.STEP";
+    TopoDS_Shape rrh_shape = read_step(rrh_filename);
 }
