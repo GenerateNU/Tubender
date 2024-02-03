@@ -5,12 +5,13 @@
 #include <gp_Pnt.hxx>
 #include <gp_Vec.hxx>
 #include <vector>
+#include <iostream>
 
-// outputs a list of vectors containing the tangents to the points on the curve
+// outputs a list of vectors containing the tangents to the knots on the curve
 std::vector<gp_Vec> calculate_tangent_vectors(const Handle(Geom_BSplineCurve)& bsplineCurve) {
     std::vector<gp_Vec> tangentVectors;
-    std::gp_Vec tangentVector;
-    std::gp_Pnt point;
+    gp_Vec tangentVector;
+    gp_Pnt point;
     int knots = bsplineCurve->NbKnots();
     TColStd_Array1OfReal knotsArray(1, knots);
     bsplineCurve->Knots(knotsArray);
