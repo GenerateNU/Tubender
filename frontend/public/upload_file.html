@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>File Upload</title>
+  </head>
+  <body>
+
+    <input type="file" id=" fileInput" accept=".iges, .step" />
+    <button onclick="handleFileUpload()">Upload</button>
+
+    <script>
+      function handleFileUpload() {
+        var input = document.getElementById('fileInput');
+        var file = input.files[0];
+
+        if (file) {
+          console.log('Selected file:', file.name);
+
+          // add upload stuff
+          alert('File selected for upload: ' + file.name);
+            } else {
+                alert('No file selected.');
+        }
+      }
+    </script>
+
+    <div id="root"></div>
+  </body>
+</html>
