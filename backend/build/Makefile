@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/Cellar/cmake/3.28.1/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.28.1/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/Cellar/cmake/3.28.1/bin/cmake -E rm -f
+RM = /opt/homebrew/Cellar/cmake/3.28.1/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/muneerlalji/Desktop/Tubender/backend
+CMAKE_SOURCE_DIR = /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/muneerlalji/Desktop/Tubender/backend/build
+CMAKE_BINARY_DIR = /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /Users/muneerlalji/Desktop/Tubender/backend/build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	/usr/local/Cellar/cmake/3.28.1/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/homebrew/Cellar/cmake/3.28.1/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/usr/local/Cellar/cmake/3.28.1/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/homebrew/Cellar/cmake/3.28.1/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/muneerlalji/Desktop/Tubender/backend/build/CMakeFiles /Users/muneerlalji/Desktop/Tubender/backend/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/muneerlalji/Desktop/Tubender/backend/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,6 +129,19 @@ cad_to_gcode/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cad_to_gcode.dir/build.make CMakeFiles/cad_to_gcode.dir/build
 .PHONY : cad_to_gcode/fast
 
+#=============================================================================
+# Target rules for targets named todoShape_to_geomCurve
+
+# Build rule for target.
+todoShape_to_geomCurve: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 todoShape_to_geomCurve
+.PHONY : todoShape_to_geomCurve
+
+# fast build rule for target.
+todoShape_to_geomCurve/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/build
+.PHONY : todoShape_to_geomCurve/fast
+
 src/cad_to_gcode.o: src/cad_to_gcode.cpp.o
 .PHONY : src/cad_to_gcode.o
 
@@ -153,6 +166,54 @@ src/cad_to_gcode.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cad_to_gcode.dir/build.make CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.s
 .PHONY : src/cad_to_gcode.cpp.s
 
+src/igs_to_todoDsShape.o: src/igs_to_todoDsShape.cpp.o
+.PHONY : src/igs_to_todoDsShape.o
+
+# target to build an object file
+src/igs_to_todoDsShape.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/src/igs_to_todoDsShape.cpp.o
+.PHONY : src/igs_to_todoDsShape.cpp.o
+
+src/igs_to_todoDsShape.i: src/igs_to_todoDsShape.cpp.i
+.PHONY : src/igs_to_todoDsShape.i
+
+# target to preprocess a source file
+src/igs_to_todoDsShape.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/src/igs_to_todoDsShape.cpp.i
+.PHONY : src/igs_to_todoDsShape.cpp.i
+
+src/igs_to_todoDsShape.s: src/igs_to_todoDsShape.cpp.s
+.PHONY : src/igs_to_todoDsShape.s
+
+# target to generate assembly for a file
+src/igs_to_todoDsShape.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/src/igs_to_todoDsShape.cpp.s
+.PHONY : src/igs_to_todoDsShape.cpp.s
+
+src/todoDsShape_to_geomCurve.o: src/todoDsShape_to_geomCurve.cpp.o
+.PHONY : src/todoDsShape_to_geomCurve.o
+
+# target to build an object file
+src/todoDsShape_to_geomCurve.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/src/todoDsShape_to_geomCurve.cpp.o
+.PHONY : src/todoDsShape_to_geomCurve.cpp.o
+
+src/todoDsShape_to_geomCurve.i: src/todoDsShape_to_geomCurve.cpp.i
+.PHONY : src/todoDsShape_to_geomCurve.i
+
+# target to preprocess a source file
+src/todoDsShape_to_geomCurve.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/src/todoDsShape_to_geomCurve.cpp.i
+.PHONY : src/todoDsShape_to_geomCurve.cpp.i
+
+src/todoDsShape_to_geomCurve.s: src/todoDsShape_to_geomCurve.cpp.s
+.PHONY : src/todoDsShape_to_geomCurve.s
+
+# target to generate assembly for a file
+src/todoDsShape_to_geomCurve.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/src/todoDsShape_to_geomCurve.cpp.s
+.PHONY : src/todoDsShape_to_geomCurve.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,9 +223,16 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cad_to_gcode"
+	@echo "... todoShape_to_geomCurve"
 	@echo "... src/cad_to_gcode.o"
 	@echo "... src/cad_to_gcode.i"
 	@echo "... src/cad_to_gcode.s"
+	@echo "... src/igs_to_todoDsShape.o"
+	@echo "... src/igs_to_todoDsShape.i"
+	@echo "... src/igs_to_todoDsShape.s"
+	@echo "... src/todoDsShape_to_geomCurve.o"
+	@echo "... src/todoDsShape_to_geomCurve.i"
+	@echo "... src/todoDsShape_to_geomCurve.s"
 .PHONY : help
 
 

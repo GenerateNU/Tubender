@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/muneerlalji/Desktop/Tubender/backend/src/cad_to_gcode.cpp" "CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o" "gcc" "CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o.d"
+  "/Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/src/cad_to_gcode.cpp" "CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o" "gcc" "CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

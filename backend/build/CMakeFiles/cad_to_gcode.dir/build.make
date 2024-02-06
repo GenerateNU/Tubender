@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/Cellar/cmake/3.28.1/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.28.1/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/Cellar/cmake/3.28.1/bin/cmake -E rm -f
+RM = /opt/homebrew/Cellar/cmake/3.28.1/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/muneerlalji/Desktop/Tubender/backend
+CMAKE_SOURCE_DIR = /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/muneerlalji/Desktop/Tubender/backend/build
+CMAKE_BINARY_DIR = /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/cad_to_gcode.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/cad_to_gcode.dir/progress.make
 include CMakeFiles/cad_to_gcode.dir/flags.make
 
 CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o: CMakeFiles/cad_to_gcode.dir/flags.make
-CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o: /Users/muneerlalji/Desktop/Tubender/backend/src/cad_to_gcode.cpp
+CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o: /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/src/cad_to_gcode.cpp
 CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o: CMakeFiles/cad_to_gcode.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/muneerlalji/Desktop/Tubender/backend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o -MF CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o.d -o CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o -c /Users/muneerlalji/Desktop/Tubender/backend/src/cad_to_gcode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o -MF CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o.d -o CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o -c /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/src/cad_to_gcode.cpp
 
 CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/muneerlalji/Desktop/Tubender/backend/src/cad_to_gcode.cpp > CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/src/cad_to_gcode.cpp > CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.i
 
 CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/muneerlalji/Desktop/Tubender/backend/src/cad_to_gcode.cpp -o CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/src/cad_to_gcode.cpp -o CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.s
 
 # Object files for target cad_to_gcode
 cad_to_gcode_OBJECTS = \
@@ -92,8 +92,75 @@ cad_to_gcode_EXTERNAL_OBJECTS =
 
 cad_to_gcode: CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.o
 cad_to_gcode: CMakeFiles/cad_to_gcode.dir/build.make
+cad_to_gcode: /opt/homebrew/lib/libTKXMesh.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKOpenGlTest.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKXDEDRAW.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKTObjDRAW.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKQADraw.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKExpress.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKOpenGl.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKXDEIGES.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKXDECascade.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKXmlXCAF.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKBinTObj.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKXmlTObj.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKTObj.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKXDESTEP.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKBinXCAF.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKXSDRAW.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKMeshVS.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKSTEP.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKSTEPAttr.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKSTEP209.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKSTEPBase.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKIGES.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKSTL.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKVRML.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKXSBase.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKRWMesh.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKXDE.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKXCAF.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKDCAF.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKBin.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKBinL.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKXml.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKXmlL.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKStd.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKStdL.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKVCAF.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKCAF.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKLCAF.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKCDF.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKViewerTest.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKTopTest.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKOffset.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKFillet.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKFeat.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKBool.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKBO.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKPrim.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKV3d.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKDraw.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKHLR.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKMesh.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKShHealing.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKTopAlgo.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKGeomAlgo.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKBRep.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKGeomBase.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKG3d.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKG2d.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKService.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKMath.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/opt/freeimage/lib/libfreeimage.dylib
+cad_to_gcode: /opt/homebrew/opt/tcl-tk/lib/libtk8.6.dylib
+cad_to_gcode: /opt/homebrew/opt/freetype/lib/libfreetype.dylib
+cad_to_gcode: /opt/homebrew/opt/tcl-tk/lib/libtcl8.6.dylib
+cad_to_gcode: /opt/homebrew/lib/libTKernel.7.7.2.dylib
+cad_to_gcode: /opt/homebrew/opt/tbb/lib/libtbb.12.11.dylib
+cad_to_gcode: /opt/homebrew/opt/tbb/lib/libtbbmalloc.2.11.dylib
 cad_to_gcode: CMakeFiles/cad_to_gcode.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/muneerlalji/Desktop/Tubender/backend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cad_to_gcode"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cad_to_gcode"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cad_to_gcode.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -105,6 +172,6 @@ CMakeFiles/cad_to_gcode.dir/clean:
 .PHONY : CMakeFiles/cad_to_gcode.dir/clean
 
 CMakeFiles/cad_to_gcode.dir/depend:
-	cd /Users/muneerlalji/Desktop/Tubender/backend/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/muneerlalji/Desktop/Tubender/backend /Users/muneerlalji/Desktop/Tubender/backend /Users/muneerlalji/Desktop/Tubender/backend/build /Users/muneerlalji/Desktop/Tubender/backend/build /Users/muneerlalji/Desktop/Tubender/backend/build/CMakeFiles/cad_to_gcode.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles/cad_to_gcode.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/cad_to_gcode.dir/depend
 
