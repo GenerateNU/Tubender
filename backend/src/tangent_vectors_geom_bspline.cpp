@@ -13,11 +13,12 @@ std::vector<gp_Vec> calculate_tangent_vectors(const Handle(Geom_BSplineCurve)& b
     gp_Vec tangentVector;
     gp_Pnt point;
     int knots = bsplineCurve->NbKnots();
+    Standard_Real step_size = knots / 100;
     TColStd_Array1OfReal knotsArray(1, knots);
-    bsplineCurve->Knots(knotsArray);
-    for (int i = 0; i < knots; i++) {
-        Standard_Real knot = knotsArray(i);
-        bsplineCurve->D1(knot, point, tangentVector);
+    Standard_Real first_parameter = bsplineCurve->FirstParameter();
+    Standard_Real last_parameter = bsplineCurve->LastParameter();
+    for (int u = first_parameter; u < last_parameter; u += step_size) {
+        bsplineCurve->D1(u, point, tangentVector);
         tangentVectors.push_back(tangentVector);
     }
     return tangentVectors;
