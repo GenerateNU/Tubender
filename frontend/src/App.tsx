@@ -1,9 +1,10 @@
 import React from 'react';
+import FileUploader from './components/FileUploader'; 
 
 function App() {
   return (
     <div className="flex justify-center">
-      <h1 className='text-4xl'> Tubender Bare Bones </h1>
+      <FileUploader /> {}
     </div>
   );
 }
