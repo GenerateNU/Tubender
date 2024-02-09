@@ -1,0 +1,37 @@
+name: Backend Build 
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  backend:
+      runs-on: ubuntu-latest
+
+      steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install CMake
+        run: sudo apt-get install -y cmake
+
+      - name: Install OCCT dependencies
+        run: sudo apt-get install -y libfreetype6-dev libgl2ps-dev libx11-dev libxt-dev libxmu-dev libxi-dev
+
+      - name: Create build directory
+        working-directory: backend
+        run: mkdir build
+
+      - name: Cmake Build
+        working-directory: backend/build
+        run: cmake ..
+      
+      - name: Build Backend Project
+        working-directory: backend/build
+        run: make
