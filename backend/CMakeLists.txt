@@ -8,6 +8,8 @@ include_directories(${OCE_INCLUDE_DIRS})
 
 add_executable(cad_to_gcode src/cad_to_gcode.cpp)
 add_executable(iges_to_topo src/iges_to_topo.cpp)
+add_executable(step_to_topo src/step_to_topo.cpp)
 target_link_libraries(cad_to_gcode ${OpenCASCADE_LIBRARIES})
 target_link_libraries(iges_to_topo ${OpenCASCADE_LIBRARIES})
+target_link_libraries(step_to_topo ${OpenCASCADE_LIBRARIES})
 
