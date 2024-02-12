@@ -15,15 +15,18 @@ jobs:
         run: sudo apt-get install -y cmake
 
       - name: Install OCCT dependencies
-        run: sudo apt-get install -y libfreetype6-dev libgl2ps-dev libx11-dev libxt-dev libgl-dev libxmu-dev libxi-dev libc++-15-dev libc++abi-15-dev
+        run: |
+            sudo apt-get install -y libfreetype6-dev libgl2ps-dev libx11-dev libxt-dev libgl-dev libxmu-dev libxi-dev libc++-15-dev libc++abi-15-dev
+            sudo apt-get install -y libocct-foundation-dev libocct-modeling-algorithms-dev libocct-visualization-dev
 
       - name: Create build directory
         working-directory: backend
         run: mkdir build
 
       - name: Cmake Build
-        working-directory: backend/build
-        run: cmake ..
+        run: |
+          cd backend/build
+          cmake ..
       
       - name: Build Backend Project
         working-directory: backend/build
