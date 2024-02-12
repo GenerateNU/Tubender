@@ -4,6 +4,9 @@
 #include <TopoDS_Shape.hxx>
 #include <iostream> 
 #include <filesystem> 
+#include "step_to_topo.cpp"
+#include "iges_to_topo.cpp"
+
 using namespace std; 
 
 TopoDS_Shape convert_file(const string filepath) { 
@@ -27,12 +30,12 @@ TopoDS_Shape convert_file(const string filepath) {
     }
 }
 
-int main(int argc, char* argv[]) {
-    string step_file = "Full_Frame.STEP";
-    TopoDS_Shape shape = convert_file(step_file);
+// int main(int argc, char* argv[]) {
+//     string step_file = "Full_Frame.STEP";
+//     TopoDS_Shape shape = convert_file(step_file);
 
-    return 0; 
-}
+//     return 0; 
+// }
   
 // int main() 
 // { 
