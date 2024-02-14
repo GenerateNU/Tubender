@@ -14,11 +14,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "tsc -p frontend/",
+    "test": "react-scripts testnp",
     "eject": "react-scripts eject",
     "electron": "electron .",
-    "electron-build": "electron-builder"
+    "electron-build": "electron-builder",
+    "compile": "tsc -p frontend/"
   },
   "eslintConfig": {
     "extends": [
