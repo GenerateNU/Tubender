@@ -130,17 +130,56 @@ cad_to_gcode/fast:
 .PHONY : cad_to_gcode/fast
 
 #=============================================================================
-# Target rules for targets named todoShape_to_geomCurve
+# Target rules for targets named iges_to_topo
 
 # Build rule for target.
-todoShape_to_geomCurve: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 todoShape_to_geomCurve
-.PHONY : todoShape_to_geomCurve
+iges_to_topo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 iges_to_topo
+.PHONY : iges_to_topo
 
 # fast build rule for target.
-todoShape_to_geomCurve/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/build
-.PHONY : todoShape_to_geomCurve/fast
+iges_to_topo/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iges_to_topo.dir/build.make CMakeFiles/iges_to_topo.dir/build
+.PHONY : iges_to_topo/fast
+
+#=============================================================================
+# Target rules for targets named step_to_topo
+
+# Build rule for target.
+step_to_topo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 step_to_topo
+.PHONY : step_to_topo
+
+# fast build rule for target.
+step_to_topo/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step_to_topo.dir/build.make CMakeFiles/step_to_topo.dir/build
+.PHONY : step_to_topo/fast
+
+#=============================================================================
+# Target rules for targets named shape_to_bspline
+
+# Build rule for target.
+shape_to_bspline: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 shape_to_bspline
+.PHONY : shape_to_bspline
+
+# fast build rule for target.
+shape_to_bspline/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shape_to_bspline.dir/build.make CMakeFiles/shape_to_bspline.dir/build
+.PHONY : shape_to_bspline/fast
+
+#=============================================================================
+# Target rules for targets named tangent_vectors_geom_bspline
+
+# Build rule for target.
+tangent_vectors_geom_bspline: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tangent_vectors_geom_bspline
+.PHONY : tangent_vectors_geom_bspline
+
+# fast build rule for target.
+tangent_vectors_geom_bspline/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tangent_vectors_geom_bspline.dir/build.make CMakeFiles/tangent_vectors_geom_bspline.dir/build
+.PHONY : tangent_vectors_geom_bspline/fast
 
 src/cad_to_gcode.o: src/cad_to_gcode.cpp.o
 .PHONY : src/cad_to_gcode.o
@@ -166,53 +205,101 @@ src/cad_to_gcode.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cad_to_gcode.dir/build.make CMakeFiles/cad_to_gcode.dir/src/cad_to_gcode.cpp.s
 .PHONY : src/cad_to_gcode.cpp.s
 
-src/igs_to_todoDsShape.o: src/igs_to_todoDsShape.cpp.o
-.PHONY : src/igs_to_todoDsShape.o
+src/iges_to_topo.o: src/iges_to_topo.cpp.o
+.PHONY : src/iges_to_topo.o
 
 # target to build an object file
-src/igs_to_todoDsShape.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/src/igs_to_todoDsShape.cpp.o
-.PHONY : src/igs_to_todoDsShape.cpp.o
+src/iges_to_topo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iges_to_topo.dir/build.make CMakeFiles/iges_to_topo.dir/src/iges_to_topo.cpp.o
+.PHONY : src/iges_to_topo.cpp.o
 
-src/igs_to_todoDsShape.i: src/igs_to_todoDsShape.cpp.i
-.PHONY : src/igs_to_todoDsShape.i
+src/iges_to_topo.i: src/iges_to_topo.cpp.i
+.PHONY : src/iges_to_topo.i
 
 # target to preprocess a source file
-src/igs_to_todoDsShape.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/src/igs_to_todoDsShape.cpp.i
-.PHONY : src/igs_to_todoDsShape.cpp.i
+src/iges_to_topo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iges_to_topo.dir/build.make CMakeFiles/iges_to_topo.dir/src/iges_to_topo.cpp.i
+.PHONY : src/iges_to_topo.cpp.i
 
-src/igs_to_todoDsShape.s: src/igs_to_todoDsShape.cpp.s
-.PHONY : src/igs_to_todoDsShape.s
+src/iges_to_topo.s: src/iges_to_topo.cpp.s
+.PHONY : src/iges_to_topo.s
 
 # target to generate assembly for a file
-src/igs_to_todoDsShape.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/src/igs_to_todoDsShape.cpp.s
-.PHONY : src/igs_to_todoDsShape.cpp.s
+src/iges_to_topo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iges_to_topo.dir/build.make CMakeFiles/iges_to_topo.dir/src/iges_to_topo.cpp.s
+.PHONY : src/iges_to_topo.cpp.s
 
-src/todoDsShape_to_geomCurve.o: src/todoDsShape_to_geomCurve.cpp.o
-.PHONY : src/todoDsShape_to_geomCurve.o
+src/shape_to_bspline.o: src/shape_to_bspline.cpp.o
+.PHONY : src/shape_to_bspline.o
 
 # target to build an object file
-src/todoDsShape_to_geomCurve.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/src/todoDsShape_to_geomCurve.cpp.o
-.PHONY : src/todoDsShape_to_geomCurve.cpp.o
+src/shape_to_bspline.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shape_to_bspline.dir/build.make CMakeFiles/shape_to_bspline.dir/src/shape_to_bspline.cpp.o
+.PHONY : src/shape_to_bspline.cpp.o
 
-src/todoDsShape_to_geomCurve.i: src/todoDsShape_to_geomCurve.cpp.i
-.PHONY : src/todoDsShape_to_geomCurve.i
+src/shape_to_bspline.i: src/shape_to_bspline.cpp.i
+.PHONY : src/shape_to_bspline.i
 
 # target to preprocess a source file
-src/todoDsShape_to_geomCurve.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/src/todoDsShape_to_geomCurve.cpp.i
-.PHONY : src/todoDsShape_to_geomCurve.cpp.i
+src/shape_to_bspline.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shape_to_bspline.dir/build.make CMakeFiles/shape_to_bspline.dir/src/shape_to_bspline.cpp.i
+.PHONY : src/shape_to_bspline.cpp.i
 
-src/todoDsShape_to_geomCurve.s: src/todoDsShape_to_geomCurve.cpp.s
-.PHONY : src/todoDsShape_to_geomCurve.s
+src/shape_to_bspline.s: src/shape_to_bspline.cpp.s
+.PHONY : src/shape_to_bspline.s
 
 # target to generate assembly for a file
-src/todoDsShape_to_geomCurve.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/src/todoDsShape_to_geomCurve.cpp.s
-.PHONY : src/todoDsShape_to_geomCurve.cpp.s
+src/shape_to_bspline.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shape_to_bspline.dir/build.make CMakeFiles/shape_to_bspline.dir/src/shape_to_bspline.cpp.s
+.PHONY : src/shape_to_bspline.cpp.s
+
+src/step_to_topo.o: src/step_to_topo.cpp.o
+.PHONY : src/step_to_topo.o
+
+# target to build an object file
+src/step_to_topo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step_to_topo.dir/build.make CMakeFiles/step_to_topo.dir/src/step_to_topo.cpp.o
+.PHONY : src/step_to_topo.cpp.o
+
+src/step_to_topo.i: src/step_to_topo.cpp.i
+.PHONY : src/step_to_topo.i
+
+# target to preprocess a source file
+src/step_to_topo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step_to_topo.dir/build.make CMakeFiles/step_to_topo.dir/src/step_to_topo.cpp.i
+.PHONY : src/step_to_topo.cpp.i
+
+src/step_to_topo.s: src/step_to_topo.cpp.s
+.PHONY : src/step_to_topo.s
+
+# target to generate assembly for a file
+src/step_to_topo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step_to_topo.dir/build.make CMakeFiles/step_to_topo.dir/src/step_to_topo.cpp.s
+.PHONY : src/step_to_topo.cpp.s
+
+src/tangent_vectors_geom_bspline.o: src/tangent_vectors_geom_bspline.cpp.o
+.PHONY : src/tangent_vectors_geom_bspline.o
+
+# target to build an object file
+src/tangent_vectors_geom_bspline.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tangent_vectors_geom_bspline.dir/build.make CMakeFiles/tangent_vectors_geom_bspline.dir/src/tangent_vectors_geom_bspline.cpp.o
+.PHONY : src/tangent_vectors_geom_bspline.cpp.o
+
+src/tangent_vectors_geom_bspline.i: src/tangent_vectors_geom_bspline.cpp.i
+.PHONY : src/tangent_vectors_geom_bspline.i
+
+# target to preprocess a source file
+src/tangent_vectors_geom_bspline.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tangent_vectors_geom_bspline.dir/build.make CMakeFiles/tangent_vectors_geom_bspline.dir/src/tangent_vectors_geom_bspline.cpp.i
+.PHONY : src/tangent_vectors_geom_bspline.cpp.i
+
+src/tangent_vectors_geom_bspline.s: src/tangent_vectors_geom_bspline.cpp.s
+.PHONY : src/tangent_vectors_geom_bspline.s
+
+# target to generate assembly for a file
+src/tangent_vectors_geom_bspline.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tangent_vectors_geom_bspline.dir/build.make CMakeFiles/tangent_vectors_geom_bspline.dir/src/tangent_vectors_geom_bspline.cpp.s
+.PHONY : src/tangent_vectors_geom_bspline.cpp.s
 
 # Help Target
 help:
@@ -223,16 +310,25 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cad_to_gcode"
-	@echo "... todoShape_to_geomCurve"
+	@echo "... iges_to_topo"
+	@echo "... shape_to_bspline"
+	@echo "... step_to_topo"
+	@echo "... tangent_vectors_geom_bspline"
 	@echo "... src/cad_to_gcode.o"
 	@echo "... src/cad_to_gcode.i"
 	@echo "... src/cad_to_gcode.s"
-	@echo "... src/igs_to_todoDsShape.o"
-	@echo "... src/igs_to_todoDsShape.i"
-	@echo "... src/igs_to_todoDsShape.s"
-	@echo "... src/todoDsShape_to_geomCurve.o"
-	@echo "... src/todoDsShape_to_geomCurve.i"
-	@echo "... src/todoDsShape_to_geomCurve.s"
+	@echo "... src/iges_to_topo.o"
+	@echo "... src/iges_to_topo.i"
+	@echo "... src/iges_to_topo.s"
+	@echo "... src/shape_to_bspline.o"
+	@echo "... src/shape_to_bspline.i"
+	@echo "... src/shape_to_bspline.s"
+	@echo "... src/step_to_topo.o"
+	@echo "... src/step_to_topo.i"
+	@echo "... src/step_to_topo.s"
+	@echo "... src/tangent_vectors_geom_bspline.o"
+	@echo "... src/tangent_vectors_geom_bspline.i"
+	@echo "... src/tangent_vectors_geom_bspline.s"
 .PHONY : help
 
 

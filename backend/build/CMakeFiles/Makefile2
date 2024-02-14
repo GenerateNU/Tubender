@@ -64,7 +64,10 @@ CMAKE_BINARY_DIR = /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tub
 
 # The main recursive "all" target.
 all: CMakeFiles/cad_to_gcode.dir/all
-all: CMakeFiles/todoShape_to_geomCurve.dir/all
+all: CMakeFiles/iges_to_topo.dir/all
+all: CMakeFiles/step_to_topo.dir/all
+all: CMakeFiles/shape_to_bspline.dir/all
+all: CMakeFiles/tangent_vectors_geom_bspline.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -73,7 +76,10 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/cad_to_gcode.dir/clean
-clean: CMakeFiles/todoShape_to_geomCurve.dir/clean
+clean: CMakeFiles/iges_to_topo.dir/clean
+clean: CMakeFiles/step_to_topo.dir/clean
+clean: CMakeFiles/shape_to_bspline.dir/clean
+clean: CMakeFiles/tangent_vectors_geom_bspline.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -103,30 +109,108 @@ CMakeFiles/cad_to_gcode.dir/clean:
 .PHONY : CMakeFiles/cad_to_gcode.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/todoShape_to_geomCurve.dir
+# Target rules for target CMakeFiles/iges_to_topo.dir
 
 # All Build rule for target.
-CMakeFiles/todoShape_to_geomCurve.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles --progress-num=3,4,5 "Built target todoShape_to_geomCurve"
-.PHONY : CMakeFiles/todoShape_to_geomCurve.dir/all
+CMakeFiles/iges_to_topo.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iges_to_topo.dir/build.make CMakeFiles/iges_to_topo.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iges_to_topo.dir/build.make CMakeFiles/iges_to_topo.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles --progress-num=3,4 "Built target iges_to_topo"
+.PHONY : CMakeFiles/iges_to_topo.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/todoShape_to_geomCurve.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/todoShape_to_geomCurve.dir/all
+CMakeFiles/iges_to_topo.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/iges_to_topo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles 0
-.PHONY : CMakeFiles/todoShape_to_geomCurve.dir/rule
+.PHONY : CMakeFiles/iges_to_topo.dir/rule
 
 # Convenience name for target.
-todoShape_to_geomCurve: CMakeFiles/todoShape_to_geomCurve.dir/rule
-.PHONY : todoShape_to_geomCurve
+iges_to_topo: CMakeFiles/iges_to_topo.dir/rule
+.PHONY : iges_to_topo
 
 # clean rule for target.
-CMakeFiles/todoShape_to_geomCurve.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/todoShape_to_geomCurve.dir/build.make CMakeFiles/todoShape_to_geomCurve.dir/clean
-.PHONY : CMakeFiles/todoShape_to_geomCurve.dir/clean
+CMakeFiles/iges_to_topo.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iges_to_topo.dir/build.make CMakeFiles/iges_to_topo.dir/clean
+.PHONY : CMakeFiles/iges_to_topo.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/step_to_topo.dir
+
+# All Build rule for target.
+CMakeFiles/step_to_topo.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step_to_topo.dir/build.make CMakeFiles/step_to_topo.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step_to_topo.dir/build.make CMakeFiles/step_to_topo.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles --progress-num=7,8 "Built target step_to_topo"
+.PHONY : CMakeFiles/step_to_topo.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/step_to_topo.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/step_to_topo.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles 0
+.PHONY : CMakeFiles/step_to_topo.dir/rule
+
+# Convenience name for target.
+step_to_topo: CMakeFiles/step_to_topo.dir/rule
+.PHONY : step_to_topo
+
+# clean rule for target.
+CMakeFiles/step_to_topo.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/step_to_topo.dir/build.make CMakeFiles/step_to_topo.dir/clean
+.PHONY : CMakeFiles/step_to_topo.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/shape_to_bspline.dir
+
+# All Build rule for target.
+CMakeFiles/shape_to_bspline.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shape_to_bspline.dir/build.make CMakeFiles/shape_to_bspline.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shape_to_bspline.dir/build.make CMakeFiles/shape_to_bspline.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles --progress-num=5,6 "Built target shape_to_bspline"
+.PHONY : CMakeFiles/shape_to_bspline.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/shape_to_bspline.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/shape_to_bspline.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles 0
+.PHONY : CMakeFiles/shape_to_bspline.dir/rule
+
+# Convenience name for target.
+shape_to_bspline: CMakeFiles/shape_to_bspline.dir/rule
+.PHONY : shape_to_bspline
+
+# clean rule for target.
+CMakeFiles/shape_to_bspline.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shape_to_bspline.dir/build.make CMakeFiles/shape_to_bspline.dir/clean
+.PHONY : CMakeFiles/shape_to_bspline.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/tangent_vectors_geom_bspline.dir
+
+# All Build rule for target.
+CMakeFiles/tangent_vectors_geom_bspline.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tangent_vectors_geom_bspline.dir/build.make CMakeFiles/tangent_vectors_geom_bspline.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tangent_vectors_geom_bspline.dir/build.make CMakeFiles/tangent_vectors_geom_bspline.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles --progress-num=9,10 "Built target tangent_vectors_geom_bspline"
+.PHONY : CMakeFiles/tangent_vectors_geom_bspline.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/tangent_vectors_geom_bspline.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tangent_vectors_geom_bspline.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles 0
+.PHONY : CMakeFiles/tangent_vectors_geom_bspline.dir/rule
+
+# Convenience name for target.
+tangent_vectors_geom_bspline: CMakeFiles/tangent_vectors_geom_bspline.dir/rule
+.PHONY : tangent_vectors_geom_bspline
+
+# clean rule for target.
+CMakeFiles/tangent_vectors_geom_bspline.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tangent_vectors_geom_bspline.dir/build.make CMakeFiles/tangent_vectors_geom_bspline.dir/clean
+.PHONY : CMakeFiles/tangent_vectors_geom_bspline.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

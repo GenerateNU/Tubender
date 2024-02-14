@@ -67,5 +67,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/cad_to_gcode.dir/DependInfo.cmake"
-  "CMakeFiles/todoShape_to_geomCurve.dir/DependInfo.cmake"
+  "CMakeFiles/iges_to_topo.dir/DependInfo.cmake"
+  "CMakeFiles/step_to_topo.dir/DependInfo.cmake"
+  "CMakeFiles/shape_to_bspline.dir/DependInfo.cmake"
+  "CMakeFiles/tangent_vectors_geom_bspline.dir/DependInfo.cmake"
   )

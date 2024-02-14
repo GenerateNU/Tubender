@@ -1,4 +1,7 @@
 /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles/cad_to_gcode.dir
-/Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles/todoShape_to_geomCurve.dir
+/Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles/iges_to_topo.dir
+/Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles/step_to_topo.dir
+/Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles/shape_to_bspline.dir
+/Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles/tangent_vectors_geom_bspline.dir
 /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles/edit_cache.dir
 /Users/kaamilthobani/Desktop/MasterFolder/GenerateProject/Tubender/Tubender/backend/build/CMakeFiles/rebuild_cache.dir
