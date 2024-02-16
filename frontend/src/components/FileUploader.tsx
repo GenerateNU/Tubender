@@ -1,5 +1,7 @@
 
+import axios from 'axios';
 import React, { ChangeEvent, useState } from 'react';
+
 
 const FileUploader: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -14,10 +16,17 @@ const FileUploader: React.FC = () => {
 
   const handleFileUpload = () => {
     if (selectedFile) {
+      console.log('File selected for upload:', selectedFile.name);
       alert(`File selected for upload: ${selectedFile.name}`);
     } else {
       alert('No file selected.');
     }
+
+    axios.post(`/upload`, { selectedFile })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+    })
   };
 
   return (
