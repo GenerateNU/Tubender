@@ -2,6 +2,14 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
 
+if (app.setNSApplicationDelegate) {
+  app.setNSApplicationDelegate({
+    applicationSupportsSecureRestorableState: () => true,
+  });
+} else {
+  console.warn("NSApplicationDelegate is not supported on this platform.");
+}
+
 let mainWindow;
 
 function createWindow() {
@@ -15,10 +23,11 @@ function createWindow() {
     },
   });
 
+  // Use 127.0.0.1 instead of localhost
   const startURL = isDev
-    ? 'http://localhost:3000'
+    ? 'http://127.0.0.1:3000'
     : `file://${path.join(__dirname, '../build/index.html')}`;
-
+    
   mainWindow.loadURL(startURL);
 
   mainWindow.on('closed', () => (mainWindow = null));

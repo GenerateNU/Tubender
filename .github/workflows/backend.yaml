@@ -23,7 +23,7 @@ jobs:
 
       - name: Cmake Build
         working-directory: backend/build
-        run: cmake -DOpenCASCADE_DIR=/usr/local/Cellar/opencascade/7.7.2_2/lib/cmake/opencascade ..
+        run: cmake ..
       
       - name: Build Backend Project
         working-directory: backend/build
