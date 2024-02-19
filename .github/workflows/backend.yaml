@@ -15,7 +15,7 @@ jobs:
         run: sudo apt-get install -y cmake
 
       - name: Install OCCT dependencies
-        run: sudo apt-get install -y libocct-* libfreetype6-dev libgl2ps-dev libx11-dev libxt-dev libxmu-dev libxi-dev
+        run: sudo apt-get install -y libfreetype6-dev libgl2ps-dev libx11-dev libxt-dev libxmu-dev libxi-dev
 
       - name: Create build directory
         working-directory: backend
@@ -23,7 +23,7 @@ jobs:
 
       - name: Cmake Build
         working-directory: backend/build
-        run: cmake ..
+        run: cmake -DOpenCASCADE_DIR=/usr/local/Cellar/opencascade/7.7.2_2/lib/cmake/opencascade ..
       
       - name: Build Backend Project
         working-directory: backend/build
