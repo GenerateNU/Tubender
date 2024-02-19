@@ -2,13 +2,8 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
 
-if (app.setNSApplicationDelegate) {
-  app.setNSApplicationDelegate({
-    applicationSupportsSecureRestorableState: () => true,
-  });
-} else {
-  console.warn("NSApplicationDelegate is not supported on this platform.");
-}
+// Implement NSApplicationDelegate.applicationSupportsSecureRestorableState
+app.applicationSupportsSecureRestorableState = () => true;
 
 let mainWindow;
 
