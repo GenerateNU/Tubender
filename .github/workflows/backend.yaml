@@ -18,7 +18,7 @@ jobs:
         run: sudo apt-get install -y libfreetype6-dev libgl2ps-dev libx11-dev libxt-dev libxmu-dev libxi-dev libgl-dev libc++-15-dev libc++abi-15-dev
 
       - name: Source usr/bin
-        run: source /usr/bin
+        run: source /usr/bin/
 
       - name: Create build directory
         working-directory: backend
