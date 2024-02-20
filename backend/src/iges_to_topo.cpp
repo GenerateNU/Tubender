@@ -1,6 +1,7 @@
 #include <iostream>
 #include <IGESControl_Reader.hxx>
 #include <TopoDS_Shape.hxx>
+#include "iges_to_topo.hpp"
 
 // takes in an IGES file and returns a TopoDS_Shape
 TopoDS_Shape read_iges(const char* filename)
@@ -20,27 +21,27 @@ TopoDS_Shape read_iges(const char* filename)
 }
 
 // to see if it works
-int main(int argc, char* argv[]) {
-    if (argc != 2) {
-        std::cerr << "Usage: " << argv[0] << " <IGES file>" << std::endl;
-        return 1; // Return a non-zero value to indicate an error
-    }
+// int main(int argc, char* argv[]) {
+//     if (argc != 2) {
+//         std::cerr << "Usage: " << argv[0] << " <IGES file>" << std::endl;
+//         return 1; // Return a non-zero value to indicate an error
+//     }
 
-    const char* igesFileName = argv[1];
-    std::cout <<igesFileName;
+//     const char* igesFileName = argv[1];
+//     std::cout <<igesFileName;
 
-    try {
-        // Call the function to read IGES file and get TopoDS_Shape
-        TopoDS_Shape shape = read_iges(igesFileName);
-        if (!shape.IsNull()) {
-            std::cout << "Shape is not null." << std::endl;
-        } else {
-            std::cout << "Shape is null." << std::endl;
-        }
-    } catch (const std::exception& e) {
-        std::cerr << e.what() << std::endl;
-        return 1; // Return 1 for error
-    }
+//     try {
+//         // Call the function to read IGES file and get TopoDS_Shape
+//         TopoDS_Shape shape = read_iges(igesFileName);
+//         if (!shape.IsNull()) {
+//             std::cout << "Shape is not null." << std::endl;
+//         } else {
+//             std::cout << "Shape is null." << std::endl;
+//         }
+//     } catch (const std::exception& e) {
+//         std::cerr << e.what() << std::endl;
+//         return 1; // Return 1 for error
+//     }
 
-    return 0; // Return 0 for success
-}
+//     return 0; // Return 0 for success
+// }

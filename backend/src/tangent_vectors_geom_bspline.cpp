@@ -6,6 +6,7 @@
 #include <gp_Vec.hxx>
 #include <vector>
 #include <iostream>
+#include "tangent_vectors_geom_bspline.hpp"
 
 // outputs a list of vectors containing the tangents to the knots on the curve
 std::vector<gp_Vec> calculate_tangent_vectors(const Handle(Geom_BSplineCurve)& bsplineCurve) {
@@ -23,6 +24,6 @@ std::vector<gp_Vec> calculate_tangent_vectors(const Handle(Geom_BSplineCurve)& b
     return tangentVectors;
 }
 
-int main(int argc, char* argv[]) {
-    return 1;
-}
+// int main(int argc, char* argv[]) {
+//     return 1;
+// }

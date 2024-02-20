@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
+#include "step_to_topo.hpp"
 
 TopoDS_Shape read_step(const string& filename) { 
     STEPControl_Reader reader; 
@@ -29,10 +30,10 @@ TopoDS_Shape read_step(const string& filename) {
     return result;
 }
 
-int main(int argc, char* argv[]) {
-    string full_frame_filename = "Full_Frame.STEP";
-    TopoDS_Shape full_frame_shape = read_step(full_frame_filename);
+// int main(int argc, char* argv[]) {
+//     string full_frame_filename = "Full_Frame.STEP";
+//     TopoDS_Shape full_frame_shape = read_step(full_frame_filename);
 
-    string rrh_filename = "RRH.STEP";
-    TopoDS_Shape rrh_shape = read_step(rrh_filename);
-}
+//     string rrh_filename = "RRH.STEP";
+//     TopoDS_Shape rrh_shape = read_step(rrh_filename);
+// }
