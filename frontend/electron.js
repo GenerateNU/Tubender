@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
-const isDev = require('electron-is-dev');
+const express = require('express');
 
 // Implement NSApplicationDelegate.applicationSupportsSecureRestorableState
 app.applicationSupportsSecureRestorableState = () => true;
@@ -12,23 +12,34 @@ function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: false, // nodeIntegration is set to false
-      contextIsolation: true, // enable context isolation
-      preload: path.join(__dirname, 'preload.js'), // specify preload script
+      nodeIntegration: false, 
+      contextIsolation: true, 
     },
   });
 
-  // Use 127.0.0.1 instead of localhost
-  const startURL = isDev
-    ? 'http://127.0.0.1:3000'
-    : `file://${path.join(__dirname, '../build/index.html')}`;
-    
-  mainWindow.loadURL(startURL);
+  // Load the production build of the React application
+  mainWindow.loadFile(path.join(__dirname, 'build', 'index.html'));
 
   mainWindow.on('closed', () => (mainWindow = null));
 }
 
-app.on('ready', createWindow);
+app.on('ready', () => {
+  createWindow();
+
+  // Create an express server to serve static files
+  const expressApp = express();
+  const staticPath = path.join(__dirname, 'build', 'static');
+  expressApp.use(express.static(staticPath));
+  
+  // Error handling
+  expressApp.on('error', (err) => {
+    console.error('Express server error:', err);
+  });
+
+  expressApp.listen(3000, () => {
+    console.log('Static server running on port 3000');
+  });
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
