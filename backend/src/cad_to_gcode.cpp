@@ -14,27 +14,27 @@
 
 int main() {
     try {
-        // std::string step_filename = "Full_Frame.STEP";
-        std::string iges_filename = "RRH_sketchlines.IGS";
+        std::string step_filename = "RRH.STEP";
+        std::string iges_filename = "RRH_test.IGS";
 
-        // std::cout << "Reading STEP file..." << step_filename << std::endl;
+        std::cout << "Reading files..." << step_filename << std::endl;
 
-        // TopoDS_Shape step_shape = read_step(step_filename);
+        TopoDS_Shape step_shape = read_step(step_filename);
         TopoDS_Shape iges_shape = read_iges(iges_filename.c_str());
 
         std::cout << "Creating B-Spline curves from shapes..." << std::endl;
 
-        // Handle(Geom_BSplineCurve) bsplineCurveStep = CreateBSplineFromShape(step_shape);
+        Handle(Geom_BSplineCurve) bsplineCurveStep = CreateBSplineFromShape(step_shape);
         Handle(Geom_BSplineCurve) bsplineCurveIges = CreateBSplineFromShape(iges_shape);
 
         std::cout << "Calculating tangent vectors..." << std::endl;
 
-        // std::vector<gp_Vec> tangentVectorsStep = calculate_tangent_vectors(bsplineCurveStep);
+        std::vector<gp_Vec> tangentVectorsStep = calculate_tangent_vectors(bsplineCurveStep);
         std::vector<gp_Vec> tangentVectorsIges = calculate_tangent_vectors(bsplineCurveIges);
 
         std::cout << "Generating G-code..." << std::endl;
 
-        // generateGCode(tangentVectorsStep, "output_step.gcode");
+        generateGCode(tangentVectorsStep, "output_step.gcode");
         generateGCode(tangentVectorsIges, "output_iges.gcode");
 
     } catch (const std::exception& e) {

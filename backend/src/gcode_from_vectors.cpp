@@ -48,17 +48,7 @@ void generateGCode(const std::vector<gp_Vec> &tangentVectors, const std::string 
     outFile.close();
     std::cout << "G-code generated successfully at " << outputPath << std::endl;
 }
-Handle(Geom_BSplineCurve) createExampleBSplineCurve()
-{
-    std::cout << "Creating an example B-Spline curve..." << std::endl;
-    TColgp_Array1OfPnt points(1, 4);
-    points.SetValue(1, gp_Pnt(0, 0, 0));
-    points.SetValue(2, gp_Pnt(1, 2, 0));
-    points.SetValue(3, gp_Pnt(3, 3, 0));
-    points.SetValue(4, gp_Pnt(4, 0, 0));
-    GeomAPI_PointsToBSpline splineBuilder(points);
-    return splineBuilder.Curve();
-}
+
 // int main(int argc, char *argv[])
 // {
 //     std::cout << "Program started." << std::endl;
