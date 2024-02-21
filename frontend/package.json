@@ -1,6 +1,8 @@
 {
   "name": "tubender",
   "version": "0.1.0",
+  "description": "Tubender Desktop App",
+  "author": "Generate",
   "private": true,
   "main": "public/electron.js",
   "dependencies": {
@@ -48,8 +50,17 @@
     ]
   },
   "build": {
-    "appId": "com.example.myapp",
-    "productName": "My Electron App",
+    "appId": "com.tubender",
+    "mac": {
+      "icon": "images/logo.icns"
+    },
+    "win": {
+      "icon": "images/logo.ico"
+    },
+    "linux": {
+      "icon": "images/logo.png"
+    },
+    "productName": "Tubender",
     "directories": {
       "output": "dist"
     }
