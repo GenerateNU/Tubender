@@ -1,12 +1,17 @@
 export enum MaterialEnum {
-    none = '',
-    nickel = "nickel",
-    brass = "brass",
-    copper = "copper",
+    nickel = "Nickel",
+    brass = "Brass",
+    copper = "Copper",
   }
   
 export enum MeasurementUnit {
-    none = '',
-    inches = 'inches',
-    millimeters = 'millimeters',
+    inches = 'Inches',
+    millimeters = 'Millimeters',
   }  
+
+export enum BendFields {
+  radius = 'radius',
+  arcLength = 'arcLength',
+  extrusion = 'extrusion',
+  straightTube = 'straightTube',
+}

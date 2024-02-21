@@ -5,7 +5,7 @@ import { MenuItem, Select, TextField } from '@mui/material';
 import { Divider } from '@mui/material';
 import StepWrapper from '../components/StepWrapper';
 import { Link } from 'react-router-dom';
-import { MaterialEnum, MeasurementUnit } from '../enums';
+import { MaterialEnum, MeasurementUnit, BendFields } from '../enums';
 import { FormValues } from '../types';
 
 function InputForm() {
@@ -53,9 +53,9 @@ function InputForm() {
             placeholder='Select Material'
             fullWidth
           >
-            <MenuItem value={MaterialEnum.nickel}>Nickel</MenuItem>
-            <MenuItem value={MaterialEnum.brass}>Brass</MenuItem>
-            <MenuItem value={MaterialEnum.copper}>Copper</MenuItem>
+            {Object.values(MaterialEnum).map(material => (
+              <MenuItem key={material} value={material}>{material}</MenuItem>
+            ))}
           </Select>
         )
         }
@@ -100,8 +100,9 @@ function InputForm() {
                 label={errors.length?.unit ? 'Please select a valid option' : ''}
                 fullWidth
               >
-                <MenuItem value={MeasurementUnit.inches}>Inches</MenuItem>
-                <MenuItem value={MeasurementUnit.millimeters}>Millimeters</MenuItem>
+                {Object.values(MeasurementUnit).map(unit => (
+                    <MenuItem key={unit} value={unit}>{unit}</MenuItem>
+                  ))}
               </Select>
             )
             }
@@ -153,13 +154,6 @@ function InputForm() {
 
   const bendConfig = () => {
     const bendIndex = pageNumber - pages.length
-
-    enum BendFields {
-      radius = 'radius',
-      arcLength = 'arcLength',
-      extrusion = 'extrusion',
-      straightTube = 'straightTube',
-    }
 
     const fields: { key: BendFields, label: string }[] = [
       { key: BendFields.radius, label: 'Bend Radius' },
