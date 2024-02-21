@@ -78,6 +78,7 @@ function InputForm() {
                 type='number'
                 {...field}
                 error={errors.length?.value !== undefined}
+                label={errors.length?.value ? 'Please enter a positive number' : ''}
                 onChange={(event) => field.onChange(+event.target.value)}
                 fullWidth
               ></TextField>
@@ -96,6 +97,7 @@ function InputForm() {
                 key='length-unit'
                 {...field}
                 error={errors.length?.unit !== undefined}
+                label={errors.length?.unit ? 'Please select a valid option' : ''}
                 fullWidth
               >
                 <MenuItem value={MeasurementUnit.inches}>Inches</MenuItem>
@@ -122,6 +124,7 @@ function InputForm() {
             key='bend-count'
             type='number'
             error={errors.bendCount !== undefined}
+            label={errors.bendCount ? 'Please enter a positive integer' : ''}
             {...field}
             fullWidth
             onChange={(event) => field.onChange(+event.target.value)}
@@ -180,6 +183,7 @@ function InputForm() {
                   name={`bends.${bendIndex}.${value.key}.value`}
                   rules={{
                     required: true,
+                    min: 0
                   }}
                   render={({ field }) => (
                     <TextField placeholder={'0'}
@@ -187,6 +191,7 @@ function InputForm() {
                       fullWidth
                       variant="filled"
                       type='number'
+                      error={errors.bends?.[bendIndex]?.[value.key] !== undefined}
                       {...field}
                       onChange={(event) => field.onChange(+event.target.value)}
                     ></TextField>
