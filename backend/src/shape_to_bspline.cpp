@@ -13,6 +13,8 @@
 #include <TopExp.hxx>
 #include <TopoDS.hxx>
 #include <gp_Pnt.hxx>
+#include <TColgp_Array1OfPnt.hxx>
+#include "shape_to_bspline.hpp"
 
 bool VerticesMatch(const TopoDS_Vertex& v1, const TopoDS_Vertex& v2) {
     gp_Pnt p1 = BRep_Tool::Pnt(v1);
@@ -82,6 +84,20 @@ std::vector<gp_Pnt> SamplePointsFromEdge(const TopoDS_Edge& edge, int numPoints)
     return points;
 }
 
+Handle(Geom_BSplineCurve) CreateSimpleBSpline(const TopoDS_Shape& shape) {
+    TColgp_Array1OfPnt points(1, 6);
+
+    points.SetValue(1, gp_Pnt(0.0, 0.0, 0.0));
+    points.SetValue(2, gp_Pnt(1.0, 2.0, 0.0));
+    points.SetValue(3, gp_Pnt(2.0, 4.0, 1.0));
+    points.SetValue(4, gp_Pnt(3.0, 6.0, 1.0));
+    points.SetValue(5, gp_Pnt(4.0, 8.0, 0.0));
+    points.SetValue(6, gp_Pnt(5.0, 10.0, 0.0));
+
+    GeomAPI_PointsToBSpline splineBuilder(points);
+    return splineBuilder.Curve();
+}
+
 Handle(Geom_BSplineCurve) CreateBSplineFromShape(const TopoDS_Shape& shape) {
     std::vector<TopoDS_Edge> orderedEdges = OrderEdges(shape);
     std::vector<gp_Pnt> allPoints;
@@ -98,7 +114,16 @@ Handle(Geom_BSplineCurve) CreateBSplineFromShape(const TopoDS_Shape& shape) {
         arrayPoints.SetValue(i + 1, allPoints[i]);
     }
 
-    GeomAPI_PointsToBSpline splineBuilder(arrayPoints);
+    // // create simple bspline using CreateSimpleBSpline function
+    // Handle(Geom_BSplineCurve) simpleSpline = CreateSimpleBSpline();
+
+    // // make sure the simpleSpline is not null
+    // if (simpleSpline.IsNull()) {
+    //     std::cout << "simpleSpline is null" << std::endl;
+    // } else {
+    //     std::cout << "simpleSpline is not null" << std::endl;
+    // }
+    
+    GeomAPI_PointsToBSpline splineBuilder(arrayPoints);    
     return splineBuilder.Curve();
 }
-
