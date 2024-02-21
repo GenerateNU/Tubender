@@ -18,7 +18,7 @@ function createWindow() {
   });
 
   // Load the production build of the React application
-  mainWindow.loadFile(path.join(__dirname, 'build', 'index.html'));
+  mainWindow.loadFile(path.join(__dirname, '..', 'build', 'index.html'));
 
   mainWindow.on('closed', () => (mainWindow = null));
 }
