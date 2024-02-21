@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
+import Button from './Button'; // Assuming Button component is in the same directory
 
 const FileUploader: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -21,8 +22,10 @@ const FileUploader: React.FC = () => {
 
   return (
     <div>
-      <input type="file" id="fileInput" accept=".iges,.step" onChange={handleFileChange} />
-      <button onClick={handleFileUpload}>Upload</button>
+      <label htmlFor="fileInput" className="w-52 h-12 flex justify-center items-center rounded-xl bg-brand-blue text-brand-white cursor-pointer">
+        <h3 className="text-center font-semibold text-sm">Upload Bend Design</h3>
+        <input type="file" id="fileInput" accept=".iges,.step" onChange={handleFileUpload} style={{ display: 'none' }} />
+      </label>
     </div>
   );
 };
