@@ -1,5 +1,4 @@
 import React, { ChangeEvent, useState } from 'react';
-import Button from './Button'; // Assuming Button component is in the same directory
 
 const FileUploader: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
