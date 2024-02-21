@@ -12,6 +12,7 @@ add_executable(cad_to_gcode
     src/step_to_topo.cpp
     src/shape_to_bspline.cpp
     src/tangent_vectors_geom_bspline.cpp
+    src/gcode_from_vectors.cpp
 )
 # add_executable(iges_to_topo src/iges_to_topo.cpp)
 # add_executable(step_to_topo src/step_to_topo.cpp)
