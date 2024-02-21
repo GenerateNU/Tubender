@@ -5,36 +5,8 @@ import { MenuItem, Select, TextField } from '@mui/material';
 import { Divider } from '@mui/material';
 import StepWrapper from '../components/StepWrapper';
 import { Link } from 'react-router-dom';
-
-enum MaterialEnum {
-  none = '',
-  nickel = "nickel",
-  brass = "brass",
-  copper = "copper",
-}
-
-enum MeasurementUnit {
-  none = '',
-  inches = 'inches',
-  millimeters = 'millimeters',
-}
-
-interface Measurement {
-  value: number,
-  unit: { value: MeasurementUnit, label: string }
-}
-
-type FormValues = {
-  material: { label: string; value: MaterialEnum }
-  length: Measurement,
-  bendCount: number,
-  bends: {
-    radius: Measurement,
-    arcLength: Measurement,
-    extrusion: Measurement,
-    straightTube: Measurement,
-  }[]
-}
+import { MaterialEnum, MeasurementUnit } from '../enums';
+import { FormValues } from '../types';
 
 function InputForm() {
   const [pageNumber, setPageNumber] = useState(0);
@@ -239,14 +211,9 @@ function InputForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className=' w-full h-screen bg-off-white flex flex-col justify-center items-center'>
       {pageManager()}
-
       <div className={` pb-32 w-1/2 flex flex-row ${pageNumber !== 0 ? 'justify-between' : 'justify-end'} place-content-end place-items-end`}>
         {pageNumber !== 0 && <Button alt disabled={pageNumber === 0} handleClick={decrementPage} label='Back'></Button>}
-
-
         {pageNumber === pages.length + getValues('bendCount') ? <Link to='/'><Button handleClick={() => console.log("home")} label='Go Home'></Button></Link> : <Button disabled={!isValid || pageNumber === pages.length + (getValues("bendCount") || 0)} handleClick={incrementPage} label='Next'></Button>}
-
-
       </div>
     </form>
   )

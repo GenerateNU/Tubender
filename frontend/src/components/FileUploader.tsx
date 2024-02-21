@@ -1,4 +1,3 @@
-
 import React, { ChangeEvent, useState } from 'react';
 
 const FileUploader: React.FC = () => {
