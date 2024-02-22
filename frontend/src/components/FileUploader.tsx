@@ -1,5 +1,7 @@
 
 import React, { ChangeEvent, useState } from 'react';
+const { ipcRenderer } = window.require('electron');
+
 
 const FileUploader: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -9,7 +11,6 @@ const FileUploader: React.FC = () => {
     if (files && files[0]) {
       setSelectedFile(files[0]);
       console.log('Selected file:', files[0].name);
-      const { ipcRenderer } = window.require('electron');
       ipcRenderer.send('file-upload', JSON.stringify(files[0].name));
 
     }

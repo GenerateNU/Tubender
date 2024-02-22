@@ -17,12 +17,14 @@ function createWindow() {
     height: 600,
     webPreferences: {
       nodeIntegration: true, 
-      contextIsolation: true, 
+      contextIsolation: false, 
+      preload: __dirname + '/preload.js'
     },
   });
 
   // Load the production build of the React application
   mainWindow.loadFile(path.join(__dirname, 'build', 'index.html'));
+
   global.executeBackendScriptSync = (fileName) => {
     try {
       const scriptPath = path.join(__dirname, '../backend/build/determine_file_type');
