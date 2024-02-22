@@ -1,4 +1,5 @@
-#include "crow_all.h"
+
+// #include "crow_all.h"
 #include <iostream>
 #include <string>
 #include <TopoDS_Shape.hxx>
@@ -32,7 +33,8 @@ TopoDS_Shape convert_file(const string filepath) {
 
 int main()
 {
-    crow::App<crow::CORSHandler> app;
+    return 1;
+    /* crow::App<crow::CORSHandler> app;
 
 
     // Customize CORS
@@ -111,5 +113,5 @@ int main()
           }
           return crow::response(200);
       });
-    app.port(18080).run();
+    app.port(18080).run(); */
 }
