@@ -24,8 +24,8 @@ jobs:
         working-directory: backend
         run: mkdir build
 
-      - name: ls for opencascade
-        run: ls /usr/lib/cmake/
+      - name: find opencascade
+        run: sudo find /usr/ -name "OpenCASCADEConfig.cmake"
 
       - name: Cmake Build
         working-directory: backend/build
