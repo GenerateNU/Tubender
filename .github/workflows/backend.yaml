@@ -20,14 +20,11 @@ jobs:
         run: sudo apt-get install -y cmake
 
       - name: Install OpenCASCADE
-        run: sudo apt-get install tcl-dev libocct-* occt-misc
+        run: sudo apt-get install tcl-dev tk-dev libocct-* occt-misc
 
       - name: Create build directory
         working-directory: backend
         run: mkdir build
-
-      - name: find opencascade
-        run: sudo find /usr -name "OpenCASCADEConfig.cmake"
 
       - name: Cmake Build
         working-directory: backend/build
