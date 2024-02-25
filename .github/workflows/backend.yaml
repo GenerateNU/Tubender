@@ -22,9 +22,6 @@ jobs:
       - name: Install CMake
         run: sudo apt-get install -y cmake
 
-      - name: Install OCCT dependencies
-        run: sudo apt-get install -y libfreetype6-dev libgl2ps-dev libx11-dev libxt-dev libxmu-dev libxi-dev libgl-dev libc++-15-dev libc++abi-15-dev libocct-*
-
       - name: Create build directory
         working-directory: backend
         run: mkdir build
