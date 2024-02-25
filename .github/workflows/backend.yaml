@@ -10,6 +10,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Linux version
+        run: uname -r
+
       - name: Apt update
         run: sudo apt-get update
 
