@@ -42,8 +42,9 @@ function createWindow() {
   }
   };
   ipcMain.on('file-upload', (event, arg) => {
-    console.log(arg);
-    global.executeBackendScriptSync(arg);
+    const cleanedArg = arg.replace(/['"]/g, ''); // This removes both single and double quotes
+    console.log(cleanedArg);
+    global.executeBackendScriptSync(cleanedArg);
   });
   mainWindow.on('closed', () => (mainWindow = null));
 }
