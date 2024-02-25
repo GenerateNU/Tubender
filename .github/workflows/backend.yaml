@@ -17,7 +17,7 @@ jobs:
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
       - name: Add homebrew to path
-        run: export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+        run: export PATH="/home/linuxbrew/.linuxbrew"
       
       - name: Install openCASCADE
         run: brew install opencascade
