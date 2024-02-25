@@ -17,12 +17,12 @@ jobs:
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
       - name: Add homebrew to path pt 1
-        run: test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)" 
+        run: test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)" >> ~/.bashrc
 
-      - name: Add homebrew to path pt 1
-        run: test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      - name: Add homebrew to path pt 2
+        run: test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" >> ~/.bashrc
 
-      - name: Add homebrew to path pt 1
+      - name: Add homebrew to path pt 3
         run: echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
       
       - name: Install openCASCADE
