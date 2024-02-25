@@ -1,6 +1,7 @@
 
 import React, { ChangeEvent, useState } from 'react';
-import Button from './Button';
+
+
 const { ipcRenderer } = window.require('electron');
 
 
@@ -14,14 +15,6 @@ const FileUploader: React.FC = () => {
       console.log('Selected file:', files[0].name);
       ipcRenderer.send('file-upload', JSON.stringify(files[0].name));
 
-    }
-  };
-
-  const handleFileUpload = () => {
-    if (selectedFile) {
-      alert(`File selected for upload: ${selectedFile.name}`);
-    } else {
-      alert('No file selected.');
     }
   };
 

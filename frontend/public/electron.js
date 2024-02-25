@@ -18,7 +18,6 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true, 
       contextIsolation: false, 
-      preload: __dirname + '/preload.js'
     },
   });
 
@@ -27,7 +26,7 @@ function createWindow() {
 
   global.executeBackendScriptSync = (fileName) => {
     try {
-      const scriptPath = path.join(__dirname, '../backend/build/determine_file_type');
+      const scriptPath = path.join(__dirname, '../../backend/build/determine_file_type');
       console.log('Executing script at path:', scriptPath);
       const scriptArguments = [fileName];
       // Spawn the process with parameters
