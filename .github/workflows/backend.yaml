@@ -20,7 +20,7 @@ jobs:
         run: sudo apt-get install -y cmake
 
       - name: Install OpenCASCADE
-        run: sudo apt-get install libocct-* occt-misc
+        run: sudo apt-get install tcl-dev libocct-* occt-misc
 
       - name: Create build directory
         working-directory: backend
