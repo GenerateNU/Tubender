@@ -24,6 +24,9 @@ jobs:
         working-directory: backend
         run: mkdir build
 
+      - name: ls for opencascade
+        run: ls /usr/lib/cmake/opencascade/
+
       - name: Cmake Build
         working-directory: backend/build
         run: cmake ..
