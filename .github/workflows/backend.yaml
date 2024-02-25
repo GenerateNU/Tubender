@@ -10,6 +10,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Install Homebrew
+        uses: sudo apt-get install build-essential procps curl file git
+      
+      - name: Install openCASCADE
+        uses: brew install opencascade
+
       - name: Apt update
         run: sudo apt-get update
 
