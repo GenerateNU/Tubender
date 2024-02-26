@@ -1,6 +1,19 @@
 name: Frontend Build 
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - frontend/**
+      - .github/workflows/frontend.yaml
+  pull_request:
+    types: [opened]
+    paths:
+        - frontend/**
+        - .github/workflows/frontend.yaml
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 
 jobs:
