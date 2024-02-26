@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { IpcRendererEvent } from 'electron';
 import { useNavigate } from 'react-router-dom';

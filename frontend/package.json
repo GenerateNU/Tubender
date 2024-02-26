@@ -52,13 +52,13 @@
   "build": {
     "appId": "com.tubender",
     "mac": {
-      "icon": "images/logo.icns"
+      "icon": "src/images/logo.icns"
     },
     "win": {
-      "icon": "images/logo.ico"
+      "icon": "src/images/logo.ico"
     },
     "linux": {
-      "icon": "images/logo.png"
+      "icon": "src/images/logo.png"
     },
     "productName": "Tubender",
     "directories": {
