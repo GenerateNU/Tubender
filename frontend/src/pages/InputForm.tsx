@@ -255,7 +255,7 @@ function InputForm() {
               disabled={!isValid || pageNumber >= pages.length + getValues('bendCount')}
             />
           )}
-          {pageNumber === pages.length + getValues('bendCount') && <Link to="/" className="text-lg font-normal text-current no-underline">Go Home</Link>}
+          {pageNumber === pages.length + getValues('bendCount') && <Link to="/" className="text-lg font-normal text-current no-underline">Back to Home</Link>}
         </div>
       </form>
     </>
