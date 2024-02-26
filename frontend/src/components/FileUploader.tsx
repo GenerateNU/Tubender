@@ -1,29 +1,38 @@
+import React, { useEffect } from 'react';
+import { IpcRendererEvent } from 'electron';
+import { useNavigate } from 'react-router-dom';
+import Button from './Button';
 
-import React, { ChangeEvent, useState } from 'react';
+const { ipcRenderer } = window.require('electron');
 
 const FileUploader: React.FC = () => {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const navigate = useNavigate();
 
-  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (files && files[0]) {
-      setSelectedFile(files[0]);
-      console.log('Selected file:', files[0].name);
-    }
-  };
+  useEffect(() => {
+    const handleSelectedFile = (event: IpcRendererEvent, path: string) => {
+      console.log('Selected file path:', path);
+      ipcRenderer.send('file-upload', path);
 
-  const handleFileUpload = () => {
-    if (selectedFile) {
-      alert(`File selected for upload: ${selectedFile.name}`);
-    } else {
-      alert('No file selected.');
-    }
+      // Redirect after sending file for upload
+      ipcRenderer.once('file-upload-success', () => {
+        navigate('/download-cad-conversion');
+      });
+    };
+
+    ipcRenderer.on('selected-file', handleSelectedFile);
+
+    return () => {
+      ipcRenderer.removeListener('selected-file', handleSelectedFile);
+    };
+  }, [navigate]); // Include navigate in the dependency array
+
+  const handleOpenFileDialog = () => {
+    ipcRenderer.send('open-file-dialog');
   };
 
   return (
     <div>
-      <input type="file" id="fileInput" accept=".iges,.step" onChange={handleFileChange} />
-      <button onClick={handleFileUpload}>Upload</button>
+      <Button label='Upload CAD File' handleClick={handleOpenFileDialog} />
     </div>
   );
 };

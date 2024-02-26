@@ -48,21 +48,3 @@ void generateGCode(const std::vector<gp_Vec> &tangentVectors, const std::string 
     outFile.close();
     std::cout << "G-code generated successfully at " << outputPath << std::endl;
 }
-
-// int main(int argc, char *argv[])
-// {
-//     std::cout << "Program started." << std::endl;
-//     // Create or obtain a BSplineCurve
-//     Handle(Geom_BSplineCurve) bsplineCurve = createExampleBSplineCurve();
-//     // Calculate tangent vectors
-//     std::vector<gp_Vec> tangentVectors = calculate_tangent_vectors(bsplineCurve);
-//     // Specify the output path for the G-code file
-//     std::string outputPath = "output.gcode";
-//     if (argc > 1)
-//     {
-//         outputPath = argv[1]; // Allow specifying output path as a command line argument
-//     }
-//     // Generate G-code
-//     generateGCode(tangentVectors, outputPath);
-//     std::cout << "Program completed." << std::endl;
-// }
