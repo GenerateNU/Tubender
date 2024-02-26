@@ -30,7 +30,7 @@ const FileUploader: React.FC = () => {
         onClick={handleOpenFileDialog}
         className="w-52 h-12 flex justify-center items-center rounded-xl bg-brand-blue text-brand-white cursor-pointer"
       >
-        <h3 className="text-center font-semibold text-sm">Upload Bend Design</h3>
+        <h3 className="text-center font-semibold text-sm">Upload CAD File</h3>
       </button>
     </div>
   );
