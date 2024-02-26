@@ -31,7 +31,6 @@ function createWindow() {
       filters: [{ name: 'Design Files', extensions: ['iges', 'step', 'igs'] }],
     }).then(result => {
       if (!result.canceled && result.filePaths.length > 0) {
-        // Send the selected file path back to the renderer process
         event.reply('selected-file', result.filePaths[0]);
       }
     }).catch(err => {

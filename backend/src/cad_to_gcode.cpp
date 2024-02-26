@@ -29,17 +29,14 @@ TopoDS_Shape convert_file(const std::string filepath) {
 
 int main(int argc, char *argv[]) {
     try {
-        // Check if the correct number of arguments are passed
         if (argc != 3) {
             std::cerr << "Usage: " << argv[0] << " <input_file_path> <output_file_path>" << std::endl;
-            return 1; // Return an error code
+            return 1;
         }
 
-        // Get file and output path from command line arguments
         std::string filename = argv[1];
         std::string outputPath = argv[2];
 
-        // Assuming the rest of your code goes here
         TopoDS_Shape shape = convert_file(filename);
         Handle(Geom_BSplineCurve) bsplineCurve = CreateBSplineFromShape(shape);
         std::vector<gp_Vec> tangentVectors = calculate_tangent_vectors(bsplineCurve);
@@ -47,7 +44,7 @@ int main(int argc, char *argv[]) {
 
     } catch (const std::exception& e) {
         std::cerr << "Exception caught: " << e.what() << std::endl;
-        return 1; // Return an error code
+        return 1;
     }
 
     return 0;
