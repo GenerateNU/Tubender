@@ -7,12 +7,14 @@ import ContactPage from './pages/ContactPage';
 import ReviewsPage from './pages/ReviewsPage';
 import InputForm from './pages/InputForm';
 import CreateDesign from './pages/CreateDesign';
+import DownloadCadConversion from './pages/DownloadCadConversion';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<CreateDesign />} />
+        <Route path="/download-cad-conversion" element={<DownloadCadConversion />} />
         <Route path="/main" element={<MainPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/persuasive" element={<PersuasivePage />} />

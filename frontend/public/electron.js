@@ -44,20 +44,29 @@ function createWindow() {
       const scriptArguments = [fileName, outputPath];
       // Spawn the process with parameters
       const result = spawnSync(scriptPath, scriptArguments, { stdio: 'inherit' });
-      console.log('Result:', result)
+      console.log('Result:', result);
       if (result.error) {
         throw result.error;
-      }  
-  } catch (error) {
-    console.error('Error executing backend script:', error);
-    return 'Error executing backend script';
-  }
+      }
+      return true; // Successfully executed
+    } catch (error) {
+      console.error('Error executing backend script:', error);
+      return false; // Failed to execute
+    }
   };
+
   ipcMain.on('file-upload', (event, arg) => {
     const cleanedArg = arg.replace(/['"]/g, ''); // This removes both single and double quotes
-    console.log(cleanedArg);
-    global.executeBackendScriptSync(cleanedArg);
+    console.log('File path for conversion:', cleanedArg);
+    const success = global.executeBackendScriptSync(cleanedArg); // Capture the return value
+
+    if (success) {
+      event.reply('file-upload-success'); // Notify the renderer process of success
+    } else {
+      event.reply('file-upload-failure'); // Notify the renderer process of failure
+    }
   });
+
   mainWindow.on('closed', () => (mainWindow = null));
 }
 

@@ -1,16 +1,25 @@
 
 import React, { useEffect } from 'react';
 import { IpcRendererEvent } from 'electron';
+import { useNavigate } from 'react-router-dom';
+import Button from './Button';
 
 
 const { ipcRenderer } = window.require('electron');
 
 
 const FileUploader: React.FC = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const handleSelectedFile = (event: IpcRendererEvent, path: string) => {
       console.log('Selected file path:', path);
       ipcRenderer.send('file-upload', path);
+
+       // Redirect after sending file for upload
+       ipcRenderer.once('file-upload-success', () => {
+        navigate('/download-cad-conversion'); 
+      });
     };
 
     ipcRenderer.on('selected-file', handleSelectedFile);
@@ -26,12 +35,7 @@ const FileUploader: React.FC = () => {
 
   return (
     <div>
-      <button
-        onClick={handleOpenFileDialog}
-        className="w-52 h-12 flex justify-center items-center rounded-xl bg-brand-blue text-brand-white cursor-pointer"
-      >
-        <h3 className="text-center font-semibold text-sm">Upload CAD File</h3>
-      </button>
+       <Button label='Upload CAD File' handleClick={handleOpenFileDialog} />
     </div>
   );
 };
