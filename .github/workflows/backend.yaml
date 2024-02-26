@@ -35,6 +35,11 @@ jobs:
       - name: Install OpenCASCADE
         run: sudo apt-get install libtbb-dev libpcl-dev libx11-dev libxi-dev libocct-* occt-misc
 
+      - name: Find compiler paths
+        run: |
+          echo "CC compiler path: $(which cc)"
+          echo "CXX compiler path: $(which c++)"
+
       - name: Create build directory
         working-directory: backend
         run: mkdir build
