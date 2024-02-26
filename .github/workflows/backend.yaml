@@ -1,6 +1,21 @@
 name: Backend Build
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - backend/**
+      - .github/workflows/backend.yaml
+  pull_request:
+    types: [opened]
+    paths:
+        - backend/**
+        - .github/workflows/backend.yaml
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+
 
 jobs:
   backend:
