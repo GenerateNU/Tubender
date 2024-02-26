@@ -7,6 +7,10 @@ import StepWrapper from '../components/StepWrapper';
 import { Link } from 'react-router-dom';
 import { MaterialEnum, MeasurementUnit, BendFields } from '../enums';
 import { FormValues } from '../types';
+import Navbar from '../components/Navbar';
+import ProgressStepOne from '../images/ProgressStepOne';
+import ProgressStepTwo from '../images/ProgressStepTwo';
+import ProgressStepThree from '../images/ProgressStepThree';
 
 function InputForm() {
   const [pageNumber, setPageNumber] = useState(0);
@@ -38,101 +42,131 @@ function InputForm() {
     }
   }
 
+  const customInputStyle = {
+    backgroundColor: 'white',
+    borderRadius: '16px',
+    '& .MuiOutlinedInput-notchedOutline': {
+      borderColor: 'white', 
+    },
+    '&:hover .MuiOutlinedInput-notchedOutline': {
+      borderColor: 'white', 
+    },
+    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: 'white', 
+    },
+  };
+
+
   const pages = [
     <StepWrapper title='What material is the tube?'>
-      <Controller
-        control={control}
-        name="material"
-        rules={{
-          required: true,
-        }}
-        render={({ field }) => (
-          <Select
-            {...field}
-            error={errors.material !== undefined}
-            placeholder='Select Material'
-            fullWidth
-          >
-            {Object.values(MaterialEnum).map(material => (
-              <MenuItem key={material} value={material}>{material}</MenuItem>
-            ))}
-          </Select>
-        )
-        }
-      />
-    </StepWrapper>,
+    <Controller
+      control={control}
+      name="material"
+      rules={{ required: true }}
+      render={({ field }) => (
+        <Select
+          {...field}
+          error={errors.material !== undefined}
+          displayEmpty
+          fullWidth
+          style={customInputStyle}
+        >
+          {Object.entries(MaterialEnum).map(([materialKey, materialValue]) => (
+            <MenuItem key={materialKey} value={materialValue}>{materialValue}</MenuItem>
+          ))}
+        </Select>
+      )}
+    />
+    <ProgressStepOne/>
+  </StepWrapper>,
     <StepWrapper title='What length is the tube?'>
-      <div className=' flex flex-row gap-4 w-full'>
-        <div className=' w-3/5'>
-          <Controller
-            key='length-value'
-            control={control}
-            name="length.value"
-            rules={{
-              required: true,
-              min: 0,
-            }}
-            render={({ field }) => (
-              <TextField placeholder="Length"
-                key='length-value'
-                type='number'
-                {...field}
-                error={errors.length?.value !== undefined}
-                label={errors.length?.value ? 'Please enter a positive number' : ''}
-                onChange={(event) => field.onChange(+event.target.value)}
-                fullWidth
-              ></TextField>
-            )}
-          /></div>
-        <div className=' w-2/5'>
-          <Controller
-            key='length-unit'
-            control={control}
-            name="length.unit"
-            rules={{
-              required: true,
-            }}
-            render={({ field }) => (
-              <Select
-                key='length-unit'
-                {...field}
-                error={errors.length?.unit !== undefined}
-                label={errors.length?.unit ? 'Please select a valid option' : ''}
-                fullWidth
-              >
-                {Object.values(MeasurementUnit).map(unit => (
-                    <MenuItem key={unit} value={unit}>{unit}</MenuItem>
-                  ))}
-              </Select>
-            )
-            }
-          /></div></div>
-    </StepWrapper>,
-    <StepWrapper title='How many bends does the tube have?'>
-      <Controller
+    <div className='flex flex-row gap-4 w-full'>
+      <div className='w-3/5'>
+        <Controller
+          key='length-value'
+          control={control}
+          name="length.value"
+          rules={{
+            required: true,
+            min: 0,
+          }}
+          render={({ field }) => (
+            <TextField placeholder="Length"
+              key='length-value'
+              type='number'
+              {...field}
+              error={errors.length?.value !== undefined}
+              label={errors.length?.value ? 'Please enter a positive number' : ''}
+              onChange={(event) => field.onChange(+event.target.value)}
+              fullWidth
+              variant='outlined'
+              style={customInputStyle}
+            ></TextField>
+          )}
+        />
+      </div>
+      <div className='w-2/5'>
+        <Controller
+          key='length-unit'
+          control={control}
+          name="length.unit"
+          rules={{
+            required: true,
+          }}
+          render={({ field }) => (
+            <Select
+              key='length-unit'
+              {...field}
+              error={errors.length?.unit !== undefined}
+              label={errors.length?.unit ? 'Please select a valid option' : ''}
+              fullWidth
+              style={customInputStyle}
+            >
+              {Object.entries(MeasurementUnit).map(([materialKey, materialValue]) => (
+              <MenuItem key={materialKey} value={materialValue}>{materialValue}</MenuItem>
+            ))}
+            </Select>
+          )}
+        />
+      </div>
+    </div>
+    <ProgressStepTwo/>
+  </StepWrapper>,  
+  <StepWrapper title='How many bends does the tube have?'>
+    <div style={{ width: '100%'}}></div>
+  <Controller
+    key='bend-count'
+    control={control}
+    name="bendCount"
+    rules={{
+      required: true,
+      min: 1,
+      validate: {
+        integer: v => Number.isInteger(v),
+      }
+    }}
+    render={({ field }) => (
+      <TextField 
+        placeholder="Bends"
         key='bend-count'
-        control={control}
-        name="bendCount"
-        rules={{
-          required: true,
-          min: 1,
-          validate: {
-            integer: v => Number.isInteger(v),
-          }
+        type='number'
+        error={errors.bendCount !== undefined}
+        label={errors.bendCount ? 'Please enter a positive integer' : ''}
+        {...field}
+        onChange={(event) => field.onChange(+event.target.value)}
+  
+        InputProps={{
+          style: {
+            backgroundColor: 'white',
+            borderRadius: '16px', 
+          },
         }}
-        render={({ field }) => (
-          <TextField placeholder="Bends"
-            key='bend-count'
-            type='number'
-            error={errors.bendCount !== undefined}
-            label={errors.bendCount ? 'Please enter a positive integer' : ''}
-            {...field}
-            fullWidth
-            onChange={(event) => field.onChange(+event.target.value)}
-          ></TextField>
-        )}
+        style={customInputStyle}
       />
-    </StepWrapper>
+    )}
+  />
+  <ProgressStepThree/>
+</StepWrapper>,
   ]
 
   const deleteBend = () => {
@@ -146,10 +180,6 @@ function InputForm() {
     setValue('bendCount', getValues('bendCount') - 1)
 
     decrementPage()
-  }
-
-  const addBend = () => {
-    setValue('bendCount', getValues('bendCount') + 1)
   }
 
   const bendConfig = () => {
@@ -183,18 +213,18 @@ function InputForm() {
                     <TextField placeholder={'0'}
                       key={`bends-${bendIndex}-${value.key}`}
                       fullWidth
-                      variant="filled"
                       type='number'
                       error={errors.bends?.[bendIndex]?.[value.key] !== undefined}
                       {...field}
                       onChange={(event) => field.onChange(+event.target.value)}
+                      style={customInputStyle}
                     ></TextField>
                   )}
                 /></div></div>
           </div>
         )}
       </div>
-      <button onClick={deleteBend} className=' text-error-red'>Delete Bend</button>
+      <button onClick={deleteBend} className=' text-error-red'>X delete bend</button>
     </StepWrapper>
   }
 
@@ -208,14 +238,25 @@ function InputForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className=' w-full h-screen bg-off-white flex flex-col justify-center items-center'>
-      {pageManager()}
-      <div className={` pb-32 w-1/2 flex flex-row ${pageNumber !== 0 ? 'justify-between' : 'justify-end'} place-content-end place-items-end`}>
-        {pageNumber !== 0 && <Button alt disabled={pageNumber === 0} handleClick={decrementPage} label='Back'></Button>}
-        {pageNumber === pages.length + getValues('bendCount') ? <Link to='/'><Button handleClick={() => console.log("home")} label='Go Home'></Button></Link> : <Button disabled={!isValid || pageNumber === pages.length + (getValues("bendCount") || 0)} handleClick={incrementPage} label='Next'></Button>}
-      </div>
-    </form>
-  )
+    <>
+      <Navbar/>
+      <form onSubmit={handleSubmit(onSubmit)} className='w-full h-screen bg-off-white flex flex-col justify-center items-center pt-16'>
+        {pageManager()}
+        <div className={`pb-32 w-1/2 flex flex-row ${pageNumber !== 0 ? 'justify-between' : 'justify-end'} place-content-end place-items-end`}>
+          {pageNumber !== 0 && <Link to="#" onClick={decrementPage} className="text-lg font-normal text-current no-underline">Back</Link>}
+          {pageNumber < pages.length + getValues('bendCount') && (
+            <Button 
+              label="Next" 
+              handleClick={() => incrementPage()} 
+              disabled={!isValid || pageNumber >= pages.length + getValues('bendCount')}
+            />
+          )}
+          {pageNumber === pages.length + getValues('bendCount') && <Link to="/" className="text-lg font-normal text-current no-underline">Go Home</Link>}
+        </div>
+      </form>
+    </>
+  );
+  
 }
 
-export default InputForm;
+export default InputForm; 

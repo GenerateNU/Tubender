@@ -4,8 +4,6 @@ const express = require('express');
 const { spawnSync } = require('child_process');
 const { ipcMain } = require('electron');
 
-
-
 // Implement NSApplicationDelegate.applicationSupportsSecureRestorableState
 app.applicationSupportsSecureRestorableState = () => true;
 
@@ -14,7 +12,7 @@ let mainWindow;
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
-    height: 600,
+    height: 700,
     webPreferences: {
       nodeIntegration: true, 
       contextIsolation: false, 
