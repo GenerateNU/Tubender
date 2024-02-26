@@ -6,39 +6,48 @@
 #include "iges_to_topo.hpp"
 #include "gcode_from_vectors.hpp"
 
-// int main(int argc, char* argv[]) {
-//     // TopoDS_Shape shape = TopoDS_Shape();
-//     // bool eq = shape.IsEqual(TopoDS_Shape());
-//     // std::cout << eq << std::endl;
-// }
+TopoDS_Shape convert_file(const std::string filepath) {
+    std::__fs::filesystem::path p(filepath);
+    std::string extension = p.extension().string();
+    for (auto& x : extension) {
+        x = tolower(x);
+    }
+    TopoDS_Shape shape = TopoDS_Shape();
+    std::cout << "File extension: " << extension << std::endl;
+    if (extension == ".iges" || extension == ".igs") {
+        std::cout << "Reading IGES file." << std::endl;
+        TopoDS_Shape shape = read_iges(filepath.c_str());
+        return shape;
+    } else if (extension == ".step" || extension == ".stp") {
+        std::cout << "Reading Step file." << std::endl;
+        TopoDS_Shape shape = read_step(filepath.c_str());
+        return shape;
+    } else {
+        throw std::runtime_error("Error: File type not supported.");
+    }
+}
 
-int main() {
+int main(int argc, char *argv[]) {
     try {
-        std::string step_filename = "RRH.STEP";
-        std::string iges_filename = "RRH_test.IGS";
+        // Check if the correct number of arguments are passed
+        if (argc != 3) {
+            std::cerr << "Usage: " << argv[0] << " <input_file_path> <output_file_path>" << std::endl;
+            return 1; // Return an error code
+        }
 
-        std::cout << "Reading files..." << step_filename << std::endl;
+        // Get file and output path from command line arguments
+        std::string filename = argv[1];
+        std::string outputPath = argv[2];
 
-        TopoDS_Shape step_shape = read_step(step_filename);
-        TopoDS_Shape iges_shape = read_iges(iges_filename.c_str());
-
-        std::cout << "Creating B-Spline curves from shapes..." << std::endl;
-
-        Handle(Geom_BSplineCurve) bsplineCurveStep = CreateBSplineFromShape(step_shape);
-        Handle(Geom_BSplineCurve) bsplineCurveIges = CreateBSplineFromShape(iges_shape);
-
-        std::cout << "Calculating tangent vectors..." << std::endl;
-
-        std::vector<gp_Vec> tangentVectorsStep = calculate_tangent_vectors(bsplineCurveStep);
-        std::vector<gp_Vec> tangentVectorsIges = calculate_tangent_vectors(bsplineCurveIges);
-
-        std::cout << "Generating G-code..." << std::endl;
-
-        generateGCode(tangentVectorsStep, "output_step.gcode");
-        generateGCode(tangentVectorsIges, "output_iges.gcode");
+        // Assuming the rest of your code goes here
+        TopoDS_Shape shape = convert_file(filename);
+        Handle(Geom_BSplineCurve) bsplineCurve = CreateBSplineFromShape(shape);
+        std::vector<gp_Vec> tangentVectors = calculate_tangent_vectors(bsplineCurve);
+        generateGCode(tangentVectors, outputPath);
 
     } catch (const std::exception& e) {
         std::cerr << "Exception caught: " << e.what() << std::endl;
+        return 1; // Return an error code
     }
 
     return 0;

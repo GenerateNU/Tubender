@@ -1,29 +1,37 @@
 
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useState, useEffect } from 'react';
+import { IpcRendererEvent } from 'electron';
 
 
 const { ipcRenderer } = window.require('electron');
 
 
 const FileUploader: React.FC = () => {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  useEffect(() => {
+    const handleSelectedFile = (event: IpcRendererEvent, path: string) => {
+      console.log('Selected file path:', path);
+      ipcRenderer.send('file-upload', path);
+    };
 
-  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (files && files[0]) {
-      setSelectedFile(files[0]);
-      console.log('Selected file:', files[0].name);
-      ipcRenderer.send('file-upload', JSON.stringify(files[0].name));
+    ipcRenderer.on('selected-file', handleSelectedFile);
+  
+    return () => {
+      ipcRenderer.removeListener('selected-file', handleSelectedFile);
+    };
+  }, []);
 
-    }
+  const handleOpenFileDialog = () => {
+    ipcRenderer.send('open-file-dialog');
   };
 
   return (
     <div>
-      <label htmlFor="fileInput" className="w-52 h-12 flex justify-center items-center rounded-xl bg-brand-blue text-brand-white cursor-pointer">
+      <button
+        onClick={handleOpenFileDialog}
+        className="w-52 h-12 flex justify-center items-center rounded-xl bg-brand-blue text-brand-white cursor-pointer"
+      >
         <h3 className="text-center font-semibold text-sm">Upload Bend Design</h3>
-        <input type="file" id="fileInput" accept=".iges,.step,.igs" onChange={handleFileChange} style={{ display: 'none' }} />
-      </label>
+      </button>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, dialog } = require('electron');
 const path = require('path');
 const express = require('express');
 const { spawnSync } = require('child_process');
@@ -24,11 +24,27 @@ function createWindow() {
   // Load the production build of the React application
   mainWindow.loadFile(path.join(__dirname, '..', 'build', 'index.html'));
 
+  // Open file dialog and handle the file path
+  ipcMain.on('open-file-dialog', (event) => {
+    dialog.showOpenDialog(mainWindow, {
+      properties: ['openFile'],
+      filters: [{ name: 'Design Files', extensions: ['iges', 'step', 'igs'] }],
+    }).then(result => {
+      if (!result.canceled && result.filePaths.length > 0) {
+        // Send the selected file path back to the renderer process
+        event.reply('selected-file', result.filePaths[0]);
+      }
+    }).catch(err => {
+      console.error('Error opening file dialog:', err);
+    });
+  });
+
   global.executeBackendScriptSync = (fileName) => {
     try {
-      const scriptPath = path.join(__dirname, '../../backend/build/determine_file_type');
+      const outputPath = path.join(app.getPath('downloads'), 'output_gcode');
+      const scriptPath = path.join(__dirname, '../../build/cad_to_gcode');
       console.log('Executing script at path:', scriptPath);
-      const scriptArguments = [fileName];
+      const scriptArguments = [fileName, outputPath];
       // Spawn the process with parameters
       const result = spawnSync(scriptPath, scriptArguments, { stdio: 'inherit' });
       console.log('Result:', result)
