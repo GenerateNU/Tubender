@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.5)
 project(Tubender)
 
 set(CMAKE_CXX_STANDARD 14)
-set(OpenCASCADE_DIR "/usr/local/Cellar/opencascade/7.7.2_2/lib/cmake/opencascade")
+set(OpenCASCADE_DIR "/usr/lib/cmake/opencascade/")
 find_package(OpenCASCADE REQUIRED)
-include_directories(${OCE_INCLUDE_DIRS})
+include_directories("/usr/include/opencascade/")
 
 add_executable(cad_to_gcode
     src/cad_to_gcode.cpp

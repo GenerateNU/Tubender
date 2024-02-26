@@ -1,21 +1,26 @@
-name: Backend Build 
+name: Backend Build
 
 on: [push, pull_request]
 
-
 jobs:
   backend:
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-      steps:
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Linux version
+        run: uname -r
+
+      - name: Apt update
+        run: sudo apt-get update
 
       - name: Install CMake
         run: sudo apt-get install -y cmake
 
-      - name: Install OCCT dependencies
-        run: sudo apt-get install -y libfreetype6-dev libgl2ps-dev libx11-dev libxt-dev libxmu-dev libxi-dev
+      - name: Install OpenCASCADE
+        run: sudo apt-get install libtbb-dev libpcl-dev libx11-dev libxi-dev libocct-* occt-misc
 
       - name: Create build directory
         working-directory: backend
@@ -24,7 +29,7 @@ jobs:
       - name: Cmake Build
         working-directory: backend/build
         run: cmake ..
-      
+
       - name: Build Backend Project
         working-directory: backend/build
         run: make
