@@ -100,7 +100,9 @@ function InputForm() {
               onChange={(event) => field.onChange(+event.target.value)}
               fullWidth
               variant='outlined'
-              style={customInputStyle}
+              InputProps={{
+                style: customInputStyle
+              }}
             ></TextField>
           )}
         />
@@ -193,12 +195,12 @@ function InputForm() {
     ]
 
     return <StepWrapper title={`Bend #${bendIndex + 1}`}>
-      <div className=' flex flex-col gap-4'>
+      <div className=' flex flex-col gap-2'>
 
         {fields.map(value =>
           <div>
             <Divider sx={{ opacity: 0.6 }} />
-            <div className=' pt-4 flex flex-row w-96 justify-between items-center '>
+            <div className=' pt-2 flex flex-row w-96 justify-between items-center '>
               <h3 className=' text-brand-blue-dark text-xl font-semibold'>{value.label}</h3>
               <div className=' w-1/3'>
                 <Controller
@@ -217,7 +219,9 @@ function InputForm() {
                       error={errors.bends?.[bendIndex]?.[value.key] !== undefined}
                       {...field}
                       onChange={(event) => field.onChange(+event.target.value)}
-                      style={customInputStyle}
+                      InputProps={{
+                        style: customInputStyle
+                      }}
                     ></TextField>
                   )}
                 /></div></div>
