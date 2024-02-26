@@ -102,3 +102,7 @@ Handle(Geom_BSplineCurve) CreateBSplineFromShape(const TopoDS_Shape& shape) {
     return splineBuilder.Curve();
 }
 
+int main(int argc, char* argv[]) {
+    
+}
+
