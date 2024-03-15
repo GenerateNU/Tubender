@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../components/Button';
 import { useForm, Controller, SubmitHandler } from "react-hook-form"
-import { MenuItem, Select, TextField } from '@mui/material';
+import { MenuItem, Select, TextField} from '@mui/material';
 import { Divider } from '@mui/material';
 import StepWrapper from '../components/StepWrapper';
 import { Link } from 'react-router-dom';
@@ -42,6 +42,7 @@ function InputForm() {
     }
   }
 
+  
   const customInputStyle = {
     backgroundColor: 'white',
     borderRadius: '16px',
@@ -56,7 +57,6 @@ function InputForm() {
     },
   };
 
-
   const pages = [
     <StepWrapper title='What material is the tube?'>
     <Controller
@@ -70,9 +70,17 @@ function InputForm() {
           displayEmpty
           fullWidth
           style={customInputStyle}
-        >
+          renderValue={(value) => (
+            <span className='text-brand-blue-light'>
+              {value ? String(value) : "Select Material"}
+            </span>
+          )}
+          >
           {Object.entries(MaterialEnum).map(([materialKey, materialValue]) => (
-            <MenuItem key={materialKey} value={materialValue}>{materialValue}</MenuItem>
+            <MenuItem
+             key={materialKey}
+             value={materialValue} 
+             style={{ color: '#C4C4C4'}}>{materialValue}</MenuItem>
           ))}
         </Select>
       )}
@@ -91,7 +99,7 @@ function InputForm() {
             min: 0,
           }}
           render={({ field }) => (
-            <TextField placeholder="Length"
+            <TextField placeholder="0" className="text-brand-light-grey"
               key='length-value'
               type='number'
               {...field}
@@ -121,8 +129,15 @@ function InputForm() {
               {...field}
               error={errors.length?.unit !== undefined}
               label={errors.length?.unit ? 'Please select a valid option' : ''}
+              displayEmpty
               fullWidth
               style={customInputStyle}
+              renderValue={(value) => (
+                <span style={{ color: value ? '#000000' : '#666666' }}>
+                  {value ? String(value) : "Inches"}
+                </span>
+              )}
+              
             >
               {Object.entries(MeasurementUnit).map(([materialKey, materialValue]) => (
               <MenuItem key={materialKey} value={materialValue}>{materialValue}</MenuItem>
@@ -188,10 +203,12 @@ function InputForm() {
     const bendIndex = pageNumber - pages.length
 
     const fields: { key: BendFields, label: string }[] = [
-      { key: BendFields.radius, label: 'Bend Radius' },
-      { key: BendFields.arcLength, label: 'Arc Length' },
-      { key: BendFields.extrusion, label: 'Extrusion Length' },
-      { key: BendFields.straightTube, label: 'Straight Tube' },
+      { key: BendFields.straightTubeBefore, label: 'Amount of straight tube before a bend'},
+      { key: BendFields.direction, label: 'Bend direction' },
+      { key: BendFields.radius, label: 'Bend radius' },
+      { key: BendFields.arcLength, label: 'Arc length' },
+      { key: BendFields.extrusion, label: 'Extrusion length' },
+      { key: BendFields.straightTubeAfter, label: 'Amount of straight tube after a bend' },
     ]
 
     return <StepWrapper title={`Bend #${bendIndex + 1}`}>
@@ -250,7 +267,17 @@ function InputForm() {
           {pageNumber !== 0 && <Link to="#" onClick={decrementPage} className="text-lg font-normal text-current no-underline">Back</Link>}
           {pageNumber < pages.length + getValues('bendCount') && (
             <Button 
-              label="Next" 
+              label={
+                pageNumber === 0 
+                  ? "Next, length"
+                  : pageNumber === 1
+                    ? "Next, number of bends"
+                    : pageNumber === 2
+                      ? "Next, bend 1"
+                      : pageNumber < 2 + getValues('bendCount')
+                        ? `Next, bend ${pageNumber - 1}`
+                          : "Next, download"
+              }
               handleClick={() => incrementPage()} 
               disabled={!isValid || pageNumber >= pages.length + getValues('bendCount')}
             />
