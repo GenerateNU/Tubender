@@ -215,10 +215,10 @@ function InputForm() {
       <div className=' flex flex-col gap-2'>
 
         {fields.map(value =>
-          <div>
+          <div key={value.key}>
             <Divider sx={{ opacity: 0.6 }} />
-            <div className=' pt-2 flex flex-row w-96 justify-between items-center '>
-              <h3 className=' text-brand-blue-dark text-xl font-semibold'>{value.label}</h3>
+            <div className=' pt-2 flex flex-row w-96 justify-between items-center'>
+              <h3 className=' text-brand-blue-dark text-xl font-semibold w-2/3'>{value.label}</h3>
               <div className=' w-1/3'>
                 <Controller
                   key={`bends-${bendIndex}-${value.key}`}
@@ -237,7 +237,7 @@ function InputForm() {
                       {...field}
                       onChange={(event) => field.onChange(+event.target.value)}
                       InputProps={{
-                        style: customInputStyle
+                        style: customInputStyle,
                       }}
                     ></TextField>
                   )}

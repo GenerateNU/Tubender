@@ -10,10 +10,12 @@ export type FormValues = {
     length: Measurement;
     bendCount: number;
     bends: {
+      straightTubeBefore: Measurement;
+      direction: Measurement,
       radius: Measurement;
       arcLength: Measurement;
       extrusion: Measurement;
-      straightTube: Measurement;
+      straightTubeAfter: Measurement;
     }[];
   }
   
