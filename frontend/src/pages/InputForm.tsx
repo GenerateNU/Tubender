@@ -164,7 +164,7 @@ function InputForm() {
     }}
     render={({ field }) => (
       <TextField 
-        placeholder="Bends"
+        placeholder="0" className="text-brand-light-grey"
         key='bend-count'
         type='number'
         error={errors.bendCount !== undefined}
@@ -264,19 +264,30 @@ function InputForm() {
       <form onSubmit={handleSubmit(onSubmit)} className='w-full h-screen bg-off-white flex flex-col justify-center items-center pt-16'>
         {pageManager()}
         <div className={`pb-32 w-1/2 flex flex-row ${pageNumber !== 0 ? 'justify-between' : 'justify-end'} place-content-end place-items-end`}>
-          {pageNumber !== 0 && <Link to="#" onClick={decrementPage} className="text-lg font-normal text-current no-underline">Back</Link>}
+          {pageNumber !== 0 && (pageNumber <= 3 || pageNumber != pages.length + getValues('bendCount') - 1) && <Link to="#" onClick={decrementPage} className="text-lg font-normal text-current no-underline">
+            Back to
+            {pageNumber === 1
+              ? " materials"
+              : pageNumber === 2
+                ? " length"
+                : pageNumber === 3
+                 ? " number of bends"
+                 : pageNumber != pages.length + getValues('bendCount')
+                  ? ` bend ${pageNumber - 2}`
+                  : " bends"} </Link>}
+        <div className={`${pageNumber !== 3 && pageNumber !== pages.length + getValues('bendCount') - 1 ? 'ml-auto' : 'mx-auto'}`}>
           {pageNumber < pages.length + getValues('bendCount') && (
             <Button 
-              label={
+              label={"Next, " + (
                 pageNumber === 0 
-                  ? "Next, length"
+                  ? "length"
                   : pageNumber === 1
-                    ? "Next, number of bends"
+                    ? "number of bends"
                     : pageNumber === 2
-                      ? "Next, bend 1"
+                      ? "bend 1"
                       : pageNumber < 2 + getValues('bendCount')
-                        ? `Next, bend ${pageNumber - 1}`
-                          : "Next, download"
+                        ? `bend ${pageNumber - 1}`
+                          : "download")
               }
               handleClick={() => incrementPage()} 
               disabled={!isValid || pageNumber >= pages.length + getValues('bendCount')}
@@ -284,6 +295,7 @@ function InputForm() {
           )}
           {pageNumber === pages.length + getValues('bendCount') && <Link to="/" className="text-lg font-normal text-current no-underline">Back to Home</Link>}
         </div>
+       </div>
       </form>
     </>
   );
