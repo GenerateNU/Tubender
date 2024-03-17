@@ -258,10 +258,54 @@ function InputForm() {
     </StepWrapper>
   }
 
+  function BendButton(props: { bendNum: number, label: string, handleClick: () => void }) {
+    const colors = pageNumber === props.bendNum + 3 ? 'text-brand-blue-dark bg-dark-white' : 'text-brand-light-grey bg-off-white'
+    
+    return (
+      <button 
+        onClick={props.handleClick} 
+        className={`flex justify-center rounded-xl items-center ${colors}`}
+        style={{
+          width: '84px',
+          height: '51px',
+        }}
+      >
+        <h3 className="text-center font-semibold text-sm">{props.label}</h3>
+      </button>);
+  }
+
+  const bendSideBar = () => {
+    if (pageNumber >= 3 && pageNumber <= pages.length + getValues('bendCount')) {
+      console.log("bend sidebar")
+      const bendButtons = [];
+      for (let index = 0; index < getValues('bendCount'); index++) {
+        bendButtons.push(
+          
+          <BendButton
+              bendNum={index}
+              key={`bend-link-${index}`}
+              label={`Bend ${index + 1}`}
+              handleClick={() => setPageNumber(3 + index)}
+          />
+        );
+      }
+      return (
+        <div>
+          <h2>Bends</h2>
+            {bendButtons}
+        </div>
+      );
+    }
+  }
+  
+
   return (
     <>
       <Navbar/>
-      <form onSubmit={handleSubmit(onSubmit)} className='w-full h-screen bg-off-white flex flex-col justify-center items-center pt-16'>
+        <div className="sidebar bg-off-white">
+            {bendSideBar()}
+      </div>
+      <form onSubmit={handleSubmit(onSubmit)} className='w-full h-screen flex flex-col bg-off-white justify-center items-center pt-16'>
         {pageManager()}
         <div className={`pb-32 w-1/2 flex flex-row ${pageNumber !== 0 ? 'justify-between' : 'justify-end'} place-content-end place-items-end`}>
           {pageNumber !== 0 && (pageNumber <= 3 || pageNumber != pages.length + getValues('bendCount') - 1) && <Link to="#" onClick={decrementPage} className="text-lg font-normal text-current no-underline">
