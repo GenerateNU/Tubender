@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../components/Button';
+import BendSidebar from '../components/BendSidebar';
 import { useForm, Controller, SubmitHandler } from "react-hook-form"
 import { MenuItem, Select, TextField } from '@mui/material';
 import { Divider } from '@mui/material';
@@ -190,12 +191,9 @@ function InputForm() {
     decrementPage()
   }
 
-  const addBend = () => {
-    setValue('bendCount', getValues('bendCount') + 1)
-  }
-
   const bendConfig = () => {
-    const bendIndex = pageNumber - pages.length
+    const bendIndex = pageNumber - pages.length;
+    const bendCount = getValues('bendCount');
 
     enum BendFields {
       radius = 'radius',
@@ -204,6 +202,14 @@ function InputForm() {
       straightTube = 'straightTube',
     }
 
+    const onSelectBend = (index: number) => {
+      setPageNumber(pages.length + index);
+    };
+    
+    const onAddBend = () => {
+      setValue('bendCount', getValues('bendCount') + 1);
+    };
+
     const fields: { key: BendFields, label: string }[] = [
       { key: BendFields.radius, label: 'Bend Radius' },
       { key: BendFields.arcLength, label: 'Arc Length' },
@@ -211,7 +217,22 @@ function InputForm() {
       { key: BendFields.straightTube, label: 'Straight Tube' },
     ]
 
-    return <StepWrapper title={`Bend #${bendIndex + 1}`}>
+    return (
+      <div className="flex justify-between items-start">
+      <div className="sidebar-container fixed top-40 left-20 p-4"> 
+        <BendSidebar
+          currentBendIndex={pageNumber - pages.length}
+          bendCount={getValues('bendCount')}
+          onSelectBend={(index) => setPageNumber(pages.length + index)}
+          onAddBend={() => {
+            const newBendCount = getValues('bendCount') + 1;
+            setValue('bendCount', newBendCount);
+            setPageNumber(pages.length + newBendCount - 1); // Navigate to the new bend
+          }}
+        />
+        </div>
+        <div className="flex justify-center pt-16 pl-10">
+          <StepWrapper title={`Bend #${bendIndex + 1}`}>
       <div className=' flex flex-col gap-4'>
 
         {fields.map(value =>
@@ -245,7 +266,10 @@ function InputForm() {
       </div>
       <button onClick={deleteBend} className=' text-error-red'>X delete bend</button>
     </StepWrapper>
-  }
+    </div>
+      </div>
+    );
+                  }
 
   const pageManager = () => {
     if (pageNumber < pages.length) return pages[pageNumber]
