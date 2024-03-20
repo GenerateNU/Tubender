@@ -14,13 +14,13 @@ const BendSidebar: React.FC<BendSidebarProps> = ({
   onAddBend,
 }) => {
   return (
-    <div className="sidebar flex flex-col text-lg"> {/* Increased base font size for all child components */}
+    <div className="sidebar flex flex-col text-lg"> 
       <ul className="list-none p-0">
         {[...Array(bendCount)].map((_, index) => (
           <li
             key={index}
             className={`mb-2 last:mb-0 ${index === currentBendIndex ? 'text-black' : 'text-gray-400'} 
-                        text-center rounded-2xl py-3 cursor-pointer shadow-sm`} // Increased padding (py-3)
+                        text-center rounded-2xl py-3 cursor-pointer shadow-sm`} 
             style={{ backgroundColor: index === currentBendIndex ? '#DBE4EF' : 'transparent' }}
             onClick={() => onSelectBend(index)}
           >
