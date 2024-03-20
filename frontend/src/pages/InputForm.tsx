@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../components/Button';
-import { useForm, Controller, SubmitHandler } from "react-hook-form"
-import { MenuItem, Select, TextField} from '@mui/material';
+import { useForm, Controller, SubmitHandler} from "react-hook-form"
+import { MenuItem, Select, TextField, Autocomplete} from '@mui/material';
 import { Divider } from '@mui/material';
 import StepWrapper from '../components/StepWrapper';
 import { Link } from 'react-router-dom';
@@ -65,25 +65,26 @@ function InputForm() {
       rules={{ required: true }}
       render={({ field }) => (
         <Select
-          {...field}
-          error={errors.material !== undefined}
-          displayEmpty
-          fullWidth
-          style={customInputStyle}
-          renderValue={(value) => (
-            <span className='text-brand-blue-light'>
-              {value ? String(value) : "Select Material"}
-            </span>
-          )}
-          >
-          {Object.entries(MaterialEnum).map(([materialKey, materialValue]) => (
-            <MenuItem
-             key={materialKey}
-             value={materialValue} 
-             style={{ color: '#C4C4C4'}}>{materialValue}</MenuItem>
-          ))}
-        </Select>
+        {...field}
+        error={errors.material !== undefined}
+        displayEmpty
+        fullWidth
+        style={customInputStyle}
+        renderValue={(value) => (
+          <span className='text-brand-blue-light'>
+            {value ? String(value) : "Select Material"}
+          </span>
+        )}
+        >
+        {Object.entries(MaterialEnum).map(([materialKey, materialValue]) => (
+          <MenuItem
+           key={materialKey}
+           value={materialValue} 
+           style={{ color: '#C4C4C4'}}>{materialValue}</MenuItem>
+        ))}
+      </Select>
       )}
+      
     />
     <ProgressStepOne/>
   </StepWrapper>,
@@ -211,9 +212,14 @@ function InputForm() {
       { key: BendFields.straightTubeAfter, label: 'Amount of straight tube after a bend' },
     ]
 
-    return <StepWrapper title={`Bend #${bendIndex + 1}`}>
-      <div className=' flex flex-col gap-2'>
-
+    return <div className='w-full'> 
+    <div className="sidebar fixed top-100 left-0 right-0">
+          {bendSideBar()}
+      </div>
+    <div className="w-full flex flex-col flex-grow">
+    <div className='flex flex-row gap-4 w-full justify center'>
+    <StepWrapper title={`Bend #${bendIndex + 1}`}>
+      <div className=' w-full flex flex-col gap-2'>
         {fields.map(value =>
           <div key={value.key}>
             <Divider sx={{ opacity: 0.6 }} />
@@ -244,9 +250,12 @@ function InputForm() {
                 /></div></div>
           </div>
         )}
-      </div>
       <button onClick={deleteBend} className=' text-error-red'>X delete bend</button>
+      </div>
     </StepWrapper>
+    </div>
+    </div>
+    </div>
   }
 
   const pageManager = () => {
@@ -258,6 +267,7 @@ function InputForm() {
     </StepWrapper>
   }
 
+  //TODO: move to separate component
   function BendButton(props: { bendNum: number, label: string, handleClick: () => void }) {
     const colors = pageNumber === props.bendNum + 3 ? 'text-brand-blue-dark bg-dark-white' : 'text-brand-light-grey bg-off-white'
     
@@ -273,6 +283,19 @@ function InputForm() {
         <h3 className="text-center font-semibold text-sm">{props.label}</h3>
       </button>);
   }
+
+  const addBendButton =
+    <button 
+        onClick={() => {
+          setValue('bendCount', getValues('bendCount') + 1)
+        }} 
+        className={`flex justify-center items-center hover:bg-dark-white text-brand-light-grey bg-off-white`}
+        style={{
+          width: '84px',
+          height: '51px',
+        }}>
+        <h3 className="text-center font-semibold text-sm">+ add bend</h3>
+      </button>
 
   const bendSideBar = () => {
     if (pageNumber >= 3 && pageNumber <= pages.length + getValues('bendCount')) {
@@ -291,8 +314,8 @@ function InputForm() {
       }
       return (
         <div>
-          <h2>Bends</h2>
-            {bendButtons}
+          {bendButtons}
+          {addBendButton}
         </div>
       );
     }
@@ -302,13 +325,11 @@ function InputForm() {
   return (
     <>
       <Navbar/>
-        <div className="sidebar bg-off-white">
-            {bendSideBar()}
-      </div>
+      <div className="flex flex-row justify-center items-center bg-off-white">
       <form onSubmit={handleSubmit(onSubmit)} className='w-full h-screen flex flex-col bg-off-white justify-center items-center pt-16'>
         {pageManager()}
         <div className={`pb-32 w-1/2 flex flex-row ${pageNumber !== 0 ? 'justify-between' : 'justify-end'} place-content-end place-items-end`}>
-          {pageNumber !== 0 && (pageNumber <= 3 || pageNumber != pages.length + getValues('bendCount') - 1) && <Link to="#" onClick={decrementPage} className="text-lg font-normal text-current no-underline">
+          {pageNumber !== 0 && <Link to="#" onClick={decrementPage} className="text-lg font-normal text-current no-underline">
             Back to
             {pageNumber === 1
               ? " materials"
@@ -316,10 +337,10 @@ function InputForm() {
                 ? " length"
                 : pageNumber === 3
                  ? " number of bends"
-                 : pageNumber != pages.length + getValues('bendCount')
+                 : pageNumber < pages.length + getValues('bendCount')
                   ? ` bend ${pageNumber - 2}`
                   : " bends"} </Link>}
-        <div className={`${pageNumber !== 3 && pageNumber !== pages.length + getValues('bendCount') - 1 ? 'ml-auto' : 'mx-auto'}`}>
+        <div className={'ml-auto'}>
           {pageNumber < pages.length + getValues('bendCount') && (
             <Button 
               label={"Next, " + (
@@ -341,6 +362,7 @@ function InputForm() {
         </div>
        </div>
       </form>
+      </div>
     </>
   );
   
