@@ -45,6 +45,7 @@ function InputForm() {
   
   const customInputStyle = {
     backgroundColor: 'white',
+    font: 'inter',
     borderRadius: '16px',
     '& .MuiOutlinedInput-notchedOutline': {
       borderColor: 'white', 
@@ -71,7 +72,7 @@ function InputForm() {
         fullWidth
         style={customInputStyle}
         renderValue={(value) => (
-          <span className='text-brand-blue-light'>
+          <span className='text-brand-blue-light font-inter'>
             {value ? String(value) : "Select Material"}
           </span>
         )}
@@ -326,7 +327,7 @@ function InputForm() {
     <>
       <Navbar/>
       <div className="flex flex-row justify-center items-center bg-off-white">
-      <form onSubmit={handleSubmit(onSubmit)} className='w-full h-screen flex flex-col bg-off-white justify-center items-center pt-16'>
+      <form onSubmit={handleSubmit(onSubmit)} className='w-full h-screen flex flex-col bg-off-white justify-center items-center pt-16 font-inter'>
         {pageManager()}
         <div className={`pb-32 w-1/2 flex flex-row ${pageNumber !== 0 ? 'justify-between' : 'justify-end'} place-content-end place-items-end`}>
           {pageNumber !== 0 && <Link to="#" onClick={decrementPage} className="text-lg font-normal text-current no-underline">

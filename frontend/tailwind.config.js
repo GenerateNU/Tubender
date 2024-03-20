@@ -19,7 +19,10 @@ module.exports = {
         'error': {
           'red': '#CA0707'
         }
-      }
+      },
+      fontFamily: {
+        'inter': ['Inter', 'sans-serif'],
+      },
     },
   },
   plugins: [],
