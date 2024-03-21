@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       colors: {
         'off': { 'white': '#ecf1f6' },
-        'dark-white': '#DBE4EF',
+        'white-hover': '#DBE4EF',
         'brand': {
           'blue': {
             'light': '#778DA9',
@@ -22,6 +22,7 @@ module.exports = {
       },
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
+        'gothic': ['All Round Gothic', 'sans-serif'],
       },
     },
   },

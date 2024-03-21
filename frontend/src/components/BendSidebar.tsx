@@ -17,7 +17,7 @@ const BendSidebar: React.FC<BendSidebarProps> = ({
         {[...Array(bendCount)].map((_, index) => (
           <li
             key={index}
-            className={`mb-2 last:mb-0 ${index === currentBendIndex ? 'text-brand-dark-blue' : 'text-brand-light-grey'}
+            className={`mb-2 last:mb-0 ${index === currentBendIndex ? 'text-brand-blue-dark' : 'text-brand-light-grey'}
                         text-center rounded-2xl py-3 px-2 cursor-pointer`} // Increased padding (py-3)
             style={{ backgroundColor: index === currentBendIndex ? '#DBE4EF' : 'transparent' }}
             onClick={() => onSelectBend(index)}
@@ -27,7 +27,7 @@ const BendSidebar: React.FC<BendSidebarProps> = ({
         ))}
       </ul>
       <button
-        className="mt-auto py-3 px-2 bg-transparent text-brand-dark-blue rounded-2xl cursor-pointer hover:bg-gray-100" // Increased padding (py-3) and reaffirmed text size
+        className="mt-auto py-3 px-2 bg-transparent text-brand-blue-dark rounded-2xl cursor-pointer hover:bg-gray-100" // Increased padding (py-3) and reaffirmed text size
         onClick={onAddBend}
       >
         Add Bend
