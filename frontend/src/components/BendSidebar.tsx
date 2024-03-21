@@ -27,7 +27,7 @@ const BendSidebar: React.FC<BendSidebarProps> = ({
         ))}
       </ul>
       <button
-        className="mt-auto py-3 px-2 bg-transparent text-brand-blue-dark rounded-2xl cursor-pointer hover:bg-gray-100" // Increased padding (py-3) and reaffirmed text size
+        className="mt-auto py-3 px-2 bg-transparent text-brand-blue-dark rounded-2xl cursor-pointer hover:bg-brand-temp-teal hover:text-brand-white" // Increased padding (py-3) and reaffirmed text size
         onClick={onAddBend}
       >
         Add Bend

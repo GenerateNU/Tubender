@@ -228,7 +228,7 @@ function InputForm() {
     ]
 
     return <div className='w-full h-full flex justify-center relative'> 
-    <div className="sidebar absolute top-5 left-10 p-4 w-1/5">
+    <div className="sidebar absolute top-5 left-10 p-4 w-1/8">
         <BendSidebar
           currentBendIndex={pageNumber - pages.length}
           bendCount={getValues('bendCount')}
