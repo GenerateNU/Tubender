@@ -286,8 +286,12 @@ function InputForm() {
     if (pageNumber < pages.length) return pages[pageNumber]
     else if (pageNumber < pages.length + getValues('bendCount')) return bendConfig()
     else return <StepWrapper title='Download GCode'>
-      <Button label='Download File' handleClick={() => console.log('button')}></Button>
-      <Button label='Upload To Machine' handleClick={() => console.log('button')}></Button>
+      <Button label='Download File'
+       handleClick={() => console.log('button')}
+       customColors='bg-brand-temp-teal text-brand-white hover:bg-opacity-75'></Button>
+      <Button label='Upload To Machine'
+       handleClick={() => console.log('button')}
+       customColors='bg-brand-temp-teal text-brand-white hover:bg-opacity-75'></Button>
     </StepWrapper>
   }
 
@@ -328,7 +332,11 @@ function InputForm() {
               disabled={!isValid || pageNumber >= pages.length + getValues('bendCount')}
             />
           )}
-          {pageNumber === pages.length + getValues('bendCount') && <Link to="/" className="text-lg font-semibold text-current no-underline">Back to Home</Link>}
+          {pageNumber === pages.length + getValues('bendCount')
+           && <Link to="/">
+            <Button label='Back to home'
+                     handleClick={() => console.log('button')}/>
+                     </Link>}
         </div>
        </div>
       </form>

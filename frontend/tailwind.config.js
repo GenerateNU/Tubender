@@ -15,6 +15,7 @@ module.exports = {
           'orange': '#EB5E28',
           'white': '#FFFFFF',
           'light-grey': '#C4C4C4',
+          'temp-teal': '#00ADB5',
         },
         'error': {
           'red': '#CA0707'
@@ -22,7 +23,6 @@ module.exports = {
       },
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
-        'gothic': ['All Round Gothic', 'sans-serif'],
       },
     },
   },
