@@ -22,6 +22,7 @@ const theme = createTheme({
   palette: {
     text: {
       primary: '#778DA9', // regular menu item
+
     },
   },
 });
@@ -127,7 +128,6 @@ function InputForm() {
               InputProps={{
                 style: customInputStyle
               }}
-              //FormHelperTextProps={{ className: 'font-inter' }}
             ></TextField>
           )}
         />
