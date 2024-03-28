@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         'off': { 'white': '#ecf1f6' },
+        'white-hover': '#DBE4EF',
         'brand': {
           'blue': {
             'light': '#778DA9',
@@ -13,11 +14,16 @@ module.exports = {
           },
           'orange': '#EB5E28',
           'white': '#FFFFFF',
+          'light-grey': '#C4C4C4',
+          'temp-teal': '#00ADB5',
         },
         'error': {
           'red': '#CA0707'
         }
-      }
+      },
+      fontFamily: {
+        'inter': ['Inter', 'sans-serif'],
+      },
     },
   },
   plugins: [],
