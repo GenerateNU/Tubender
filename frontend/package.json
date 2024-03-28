@@ -4,6 +4,7 @@
   "description": "Tubender Desktop App",
   "author": "Generate",
   "private": true,
+  "homepage": "./",
   "main": "public/electron.js",
   "dependencies": {
     "@emotion/react": "^11.11.3",
