@@ -1,21 +1,47 @@
-name: Backend Build 
+name: Backend Build
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - backend/**
+      - .github/workflows/backend.yaml
+  pull_request:
+    types: [opened]
+    paths:
+        - backend/**
+        - .github/workflows/backend.yaml
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   backend:
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-      steps:
+    env:
+      CXX: /usr/bin/c++
+
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Linux version
+        run: uname -r
+
+      - name: Apt update
+        run: sudo apt-get update
 
       - name: Install CMake
         run: sudo apt-get install -y cmake
 
-      - name: Install OCCT dependencies
-        run: sudo apt-get install -y libfreetype6-dev libgl2ps-dev libx11-dev libxt-dev libxmu-dev libxi-dev
+      - name: Install OpenCASCADE
+        run: sudo apt-get install libtbb-dev libpcl-dev libx11-dev libxi-dev libocct-* occt-misc
+
+      - name: Find compiler paths
+        run: |
+          echo "CC compiler path: $(which cc)"
+          echo "CXX compiler path: $(which c++)"
 
       - name: Create build directory
         working-directory: backend
@@ -24,7 +50,7 @@ jobs:
       - name: Cmake Build
         working-directory: backend/build
         run: cmake ..
-      
+
       - name: Build Backend Project
         working-directory: backend/build
         run: make

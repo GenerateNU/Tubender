@@ -1,16 +1,27 @@
 {
   "name": "tubender",
   "version": "0.1.0",
+  "description": "Tubender Desktop App",
+  "author": "Generate",
   "private": true,
-  "main": "electron.js",
+  "homepage": "./",
+  "main": "public/electron.js",
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.15.10",
+    "@mui/material": "^5.15.10",
+    "@mui/x-date-pickers": "^6.19.4",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.50.1",
+    "react-hook-form-mui": "^7.0.0-beta.0",
     "react-router-dom": "^6.22.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.8.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -40,8 +51,17 @@
     ]
   },
   "build": {
-    "appId": "com.example.myapp",
-    "productName": "My Electron App",
+    "appId": "com.tubender",
+    "mac": {
+      "icon": "src/images/logo.icns"
+    },
+    "win": {
+      "icon": "src/images/logo.ico"
+    },
+    "linux": {
+      "icon": "src/images/logo.png"
+    },
+    "productName": "Tubender",
     "directories": {
       "output": "dist"
     }
@@ -51,7 +71,7 @@
     "@types/electron": "^1.6.10",
     "@types/react": "^18.2.53",
     "@types/react-dom": "^18.2.18",
-    "electron": "^28.2.3",
+    "electron": "^29.0.1",
     "electron-builder": "^24.9.1",
     "electron-is-dev": "^2.0.0",
     "tailwindcss": "^3.4.1",
