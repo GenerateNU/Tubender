@@ -14,6 +14,5 @@ export enum BendFields {
   direction = 'direction',
   radius = 'radius',
   arcLength = 'arcLength',
-  extrusion = 'extrusion',
   straightTubeAfter = 'straightTubeAfter',
 }

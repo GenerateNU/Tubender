@@ -3,6 +3,9 @@
 #include <vector>
 #include <cstring>
 #include "manual_input_to_gcode.hpp"
+#include "json.hpp"
+using json = nlohmann::json;
+
 
 std::string generateAnvilPosition(const int bendRadius) {
         return "8.907";   
@@ -60,14 +63,33 @@ void generateGCode(const std::vector<Bend> &bends, const std::string &outputPath
 
 int main(int argc, char *argv[]) {
     std::cout << "Program started." << std::endl;
-    std::string outputPath = "output.gcode";
-    Bend bendsArray[2] = {
-        {308.864, "y+", 4.25, 128.016, 333.502},
-        {333.502, "y-", 4.25, 55.372, 150.876}
-    };
-    std::vector<Bend> bends(bendsArray, bendsArray + 2);
-    // Generate G-code
-    generateGCode(bends, outputPath);
+
+    if (argc > 2) {
+        std::string outputPath = argv[1];
+        std::string inputData = argv[2];
+
+        json j = json::parse(inputData);
+
+        std::vector<Bend> bends;
+
+        for (const auto& item : j["bends"]) {
+            Bend bend;
+            bend.tubeLengthBeforeBend = item["straightTubeBefore"]["value"];
+            bend.bendDirection = item["direction"]["value"];
+            bend.bendRadius = item["radius"]["value"];
+            bend.bendArcLength = item["arcLength"]["value"];
+            bend.tubeLengthAfterBend = item["straightTubeAfter"]["value"];
+
+            bends.push_back(bend);
+        }
+
+        generateGCode(bends, outputPath);
+
+    } else {
+        std::cerr << "No data provided!" << std::endl;
+        return 1;
+    }
+
     std::cout << "Program completed." << std::endl;
     return 0;
 }

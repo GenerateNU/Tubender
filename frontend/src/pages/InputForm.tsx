@@ -13,6 +13,7 @@ import ProgressStepOne from '../images/ProgressStepOne';
 import ProgressStepTwo from '../images/ProgressStepTwo';
 import ProgressStepThree from '../images/ProgressStepThree';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+const { ipcRenderer } = window.require('electron');
 
 // Define your custom theme
 const theme = createTheme({
@@ -41,6 +42,7 @@ function InputForm() {
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log(data)
+    ipcRenderer.send('submit-form', data);
   }
 
   const incrementPage = () => {
@@ -222,8 +224,7 @@ function InputForm() {
       { key: BendFields.straightTubeBefore, label: 'Amount of straight tube before a bend'},
       { key: BendFields.direction, label: 'Bend direction' },
       { key: BendFields.radius, label: 'Bend radius' },
-      { key: BendFields.arcLength, label: 'Arc length' },
-      { key: BendFields.extrusion, label: 'Extrusion length' },
+      { key: BendFields.arcLength, label: 'Bend arc length' },
       { key: BendFields.straightTubeAfter, label: 'Amount of straight tube after a bend' },
     ]
 
@@ -256,16 +257,19 @@ function InputForm() {
                   name={`bends.${bendIndex}.${value.key}.value`}
                   rules={{
                     required: true,
-                    min: 0
+                    ...(value.key !== BendFields.direction && { min: 0 }), // Exclude the min rule for 'direction'
                   }}
                   render={({ field }) => (
-                    <TextField placeholder={'0'}
+                    <TextField placeholder={value.key === BendFields.direction ? '' : '0'}
                       key={`bends-${bendIndex}-${value.key}`}
                       fullWidth
-                      type='number'
+                      type={value.key === BendFields.direction ? 'text' : 'number'}
                       error={errors.bends?.[bendIndex]?.[value.key] !== undefined}
                       {...field}
-                      onChange={(event) => field.onChange(+event.target.value)}
+                      onChange={(event) => {
+                        const newValue = value.key === BendFields.direction ? event.target.value : +event.target.value;
+                        field.onChange(newValue);
+                      }}                      
                       InputProps={{
                         style: customInputStyle,
                       }}
@@ -287,6 +291,7 @@ function InputForm() {
     else if (pageNumber < pages.length + getValues('bendCount')) return bendConfig()
     else return <StepWrapper title='Download GCode'>
       <Button label='Download File'
+       type='submit'
        handleClick={() => console.log('button')}
        customColors='bg-brand-temp-teal text-brand-white hover:bg-opacity-75'></Button>
       <Button label='Upload To Machine'
