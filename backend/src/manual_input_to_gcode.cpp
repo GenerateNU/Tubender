@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
         generateGCode(bends, outputPath);
 
     } else {
-        std::cerr << "No data provided!" << std::endl;
+        std::cerr << "Invalid arguments. Expecting output path and input data" << std::endl;
         return 1;
     }
 
