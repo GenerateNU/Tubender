@@ -11,6 +11,6 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*.tsx"],
+  "include": ["src/**/*.tsx", "../website/src/ProductPurchasePage.tsx", "../website/src/PersonalInfoForm.tsx"],
   "exclude": ["node_modules"]
 }
