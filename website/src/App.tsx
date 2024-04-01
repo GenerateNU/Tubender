@@ -1,13 +1,11 @@
 // src/App.tsx
 
 import React from 'react';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
+import AboutPage from './components/AboutPage';
 
 const App: React.FC = () => {
   return (
-    <div className="app-container">
-      <HomePage />
+    <div className=" h-full w-full">
       <AboutPage />
     </div>
   );
