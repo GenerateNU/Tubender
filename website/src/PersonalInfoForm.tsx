@@ -1,17 +1,7 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-
-
-function Button(props: { label: string, handleClick: () => void, customClassName?:string }) {
-  const className = props.customClassName || '';
-  return (
-      <button onClick={props.handleClick} className={`button ${className}`}>
-          {props.label}
-      </button>
-  );
-}
-
+import Button from './Button';
 
 function PersonalInfoForm(){
     const [formData, setFormData] = useState({
@@ -52,7 +42,6 @@ function PersonalInfoForm(){
     return (
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
-            {/* First Row */}
             <Grid item xs={6}>
               <TextField
                 fullWidth
@@ -74,7 +63,6 @@ function PersonalInfoForm(){
 
               />
             </Grid>
-            {/* Additional Rows */}
             <Grid item xs={12}>
               <TextField
                 fullWidth
@@ -90,8 +78,7 @@ function PersonalInfoForm(){
               <TextField
                 fullWidth
                 label="Phone number"
-                variant="outlined"
-                name="message"
+                name="phone"
                 value={formData.phone}
                 onChange={handleChange}
                 sx={customInputStyle}

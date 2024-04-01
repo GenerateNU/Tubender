@@ -30,12 +30,12 @@
 }
 
 :root {
-  --brand-temp-teal: #00ADB5; /* Blue */
-  --white-hover: #DBE4EF; /* Gray */
+  --brand-temp-teal: #00ADB5;
+  --white-hover: #DBE4EF;
 }
 
 
-.bg {
+.bgAnvil {
   position: relative;
   overflow: hidden; /* Ensure the background doesn't overflow */
   width: 100%;
@@ -47,23 +47,9 @@
   background-repeat: no-repeat;
 }
 
-/* .bg::after {
-  content: '';
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-
-  z-index: -1; /* Place the image behind the text 
-} */
-
 
 .bigWordmark {
   margin-bottom: 10%;
-
 }
 
 .container {
@@ -75,10 +61,10 @@
 .formContainer {
     display: flex;
     flex-direction: column;
-    max-width: 30%; /* Set the width to be 1/3 of the container */
+    max-width: 30%;
     align-items: center;
     justify-content: center;
-    padding-left: 5%; /* Add padding to the left side (5% of the container width) */
+    padding-left: 5%;
 
 
 }

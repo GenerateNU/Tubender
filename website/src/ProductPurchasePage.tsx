@@ -3,16 +3,17 @@ import BigGrayWordmark from './BigGrayWordmarkSVG';
 
 function ProductPurchasePage() {
   return (
-    <div className='bg'>
-    <div className='container'>
+    <div className='bgAnvil'>
+      <div className='container'>
         <div className='formContainer'>ˆ
-        <div className='bigWordmark'>
-          <BigGrayWordmark />
+          <div className='bigWordmark'>
+            <BigGrayWordmark />
+          </div>
+          <PersonalInfoForm/>
         </div>
-        <PersonalInfoForm/>
+      </div>
     </div>
-    </div>
-    </div>
+    
   );
 }
 
