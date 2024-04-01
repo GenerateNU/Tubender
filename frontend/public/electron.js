@@ -8,6 +8,7 @@ const { ipcMain } = require('electron');
 app.applicationSupportsSecureRestorableState = () => true;
 
 let mainWindow;
+let selectedFilePath = '';
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -39,7 +40,7 @@ function createWindow() {
   global.executeBackendScriptSync = (fileName) => {
     try {
       const outputPath = path.join(app.getPath('downloads'), 'output_gcode');
-      const scriptPath = path.join(__dirname, '../../backend/build/cad_to_gcode');
+      const scriptPath = path.join(__dirname, '../../build/cad_to_gcode');
       console.log('Executing script at path:', scriptPath);
       const scriptArguments = [fileName, outputPath];
       // Spawn the process with parameters
@@ -56,14 +57,22 @@ function createWindow() {
   };
 
   ipcMain.on('file-upload', (event, arg) => {
-    const cleanedArg = arg.replace(/['"]/g, ''); // This removes both single and double quotes
-    console.log('File path for conversion:', cleanedArg);
-    const success = global.executeBackendScriptSync(cleanedArg); // Capture the return value
+    const cleanedArg = arg.replace(/['"]/g, ''); // Clean the file path
+    console.log('File path stored for later download:', cleanedArg);
+    selectedFilePath = cleanedArg;
+    event.reply('file-upload-success');
+  });
 
-    if (success) {
-      event.reply('file-upload-success'); // Notify the renderer process of success
+  ipcMain.on('download-file', (event) => {
+    if (selectedFilePath) {
+      const success = global.executeBackendScriptSync(selectedFilePath); // Use the stored file path
+      if (success) {
+        event.reply('download-success');
+      } else {
+        event.reply('download-failure');
+      }
     } else {
-      event.reply('file-upload-failure'); // Notify the renderer process of failure
+      event.reply('download-failure', 'No file selected');
     }
   });
 

@@ -8,12 +8,13 @@ import ReviewsPage from './pages/ReviewsPage';
 import InputForm from './pages/InputForm';
 import CreateDesign from './pages/CreateDesign';
 import DownloadCadConversion from './pages/DownloadCadConversion';
+import Onboarding from './pages/Onboarding';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<CreateDesign />} />
+        <Route path="/" element={<Onboarding />} />
         <Route path="/download-cad-conversion" element={<DownloadCadConversion />} />
         <Route path="/main" element={<MainPage />} />
         <Route path="/about" element={<AboutPage />} />
@@ -22,7 +23,7 @@ function App() {
         <Route path="/reviews" element={<ReviewsPage />} />
         <Route path="/create" element={<CreateDesign />} />
         <Route path="/create/custom" element={<InputForm />} />
-        </Routes>
+      </Routes>
     </Router>
   );
 }

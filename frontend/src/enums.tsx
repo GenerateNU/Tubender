@@ -10,8 +10,10 @@ export enum MeasurementUnit {
   }  
 
 export enum BendFields {
+  straightTubeBefore = 'straightTubeBefore',
+  direction = 'direction',
   radius = 'radius',
   arcLength = 'arcLength',
   extrusion = 'extrusion',
-  straightTube = 'straightTube',
+  straightTubeAfter = 'straightTubeAfter',
 }
