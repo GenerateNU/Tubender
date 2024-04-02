@@ -37,7 +37,6 @@
 
 .bgAnvil {
   position: relative;
-  overflow: hidden; /* Ensure the background doesn't overflow */
   width: 100%;
   height: 100%;
   background-color: var(--white-hover);
@@ -56,7 +55,14 @@
   display: flex;
   flex-direction: row;
   height: 100vh;
-
+}
+.textbox-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  padding: 5%;
+  width: 1/2;
 }
 .formContainer {
     display: flex;
@@ -66,12 +72,38 @@
     justify-content: center;
     padding-left: 5%;
 
+}
+.text-left-align {
+  text-align: left;
+}
+.text-header {
+  font-size: 48px;
+  font-weight: 400;
+  margin-bottom: 5%;
+
+}
+.text-par {
+  font-size: 32px;
+  margin-bottom: 5%;
+}
+.gray-rounded-rectangle {
+  background-color: var(--white-hover);
+  border-radius: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+  padding-top: 4%;
+  margin: 3%
 
 }
 
+.bg-white {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
 .button-brand-temp-teal {
   background-color: var(--brand-temp-teal);
-  font-family: 'Inter', sans-serif;
   color: white; 
   border-radius: 16px; 
   width: 100%;
