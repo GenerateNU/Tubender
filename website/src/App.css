@@ -56,13 +56,27 @@
   flex-direction: row;
   height: 100vh;
 }
-.textbox-col {
+
+.horizontal-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1;
-  padding: 5%;
-  width: 1/2;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+}
+.textbox-col {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  padding-top: 2%;
+  padding-bottom: 5%; 
+  padding-left: 5%; 
+  padding-right: 5%; 
+  box-sizing: border-box; /* Include padding in the width calculation */
+
 }
 .formContainer {
     display: flex;
@@ -71,7 +85,6 @@
     align-items: center;
     justify-content: center;
     padding-left: 5%;
-
 }
 .text-left-align {
   text-align: left;
@@ -89,12 +102,12 @@
 .gray-rounded-rectangle {
   background-color: var(--white-hover);
   border-radius: 20px;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 5%;
-  padding-top: 4%;
-  margin: 3%
-
+  padding-top: 2%;
+  padding-bottom: 5%; 
+  padding-left: 5%; 
+  padding-right: 5%; 
+  margin: 2%;
+  flex: 1;
 }
 
 .bg-white {
