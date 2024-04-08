@@ -16,7 +16,12 @@ function CreateDesign() {
                      handleClick={() => console.log('button')}
                      customColors='bg-brand-temp-teal text-brand-white hover:bg-opacity-75' />
                 </Link>
-                    <FileUploader />
+                <FileUploader />
+                <Link to="/onbording">
+                    <Button label='Help'
+                     handleClick={() => console.log('Start Joyride')}
+                     customColors='bg-green-500 text-white hover:bg-green-600' />
+                </Link>
             </StepWrapper>
         </div>
         </>

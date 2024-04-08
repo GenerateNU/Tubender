@@ -9,6 +9,7 @@ import InputForm from './pages/InputForm';
 import CreateDesign from './pages/CreateDesign';
 import DownloadCadConversion from './pages/DownloadCadConversion';
 import Onboarding from './pages/Onboarding';
+import { JoyrideTest } from './pages/JoyrideTest';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/reviews" element={<ReviewsPage />} />
         <Route path="/create" element={<CreateDesign />} />
         <Route path="/create/custom" element={<InputForm />} />
+        <Route path="/onbording" element={<JoyrideTest />} />
       </Routes>
     </Router>
   );
