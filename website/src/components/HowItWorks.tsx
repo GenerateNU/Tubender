@@ -1,10 +1,11 @@
 import StockPhoto from '../images/image2.png'
-import GetInTouch from './GetInTouch';
+import CustomButton from './GetInTouch';
 import Timeline from './Timeline';
-import Arrow from '../images/blue_arrow.svg'
+import LeftArrow from '../images/left_arrow.svg'
+import RightArrow from '../images/right_arrow.svg'
 
 export default function HowItWorks() {
-    return <div className=" bg-brand-blue text-brand-white flex flex-col justify-center items-center p-8 md:p-28 pb-40 w-full">
+    return <div className="  bg-gradient-to-br from-[#272932] via-[#353A4E] to-[#272932] text-brand-white flex flex-col justify-center items-center p-8 md:p-28 pb-40 w-full">
         <div className=' flex flex-col gap-5'>
             <h2 className=" text-4xl text-center font-semibold">How does Tubender work?</h2>
             <h3 className=" text-lg text-center text-off-white">Let's break down the process</h3>
@@ -13,9 +14,9 @@ export default function HowItWorks() {
             <Timeline />
         </div>
         <h1 className=' text-left w-full font-semibold text-5xl pb-10'>Starting in CAD</h1>
-        <div className=' flex flex-row flex-wrap justify-between w-full'>
-            <img src={StockPhoto} alt="" />
-            <div className=' w-full xl:w-5/12 flex flex-col justify-between'>
+        <div className=' flex flex-row flex-wrap gap-12 w-full'>
+            <img src={StockPhoto} alt="" className=' grow h-full' />
+            <div className=' w-full xl:w-5/12 flex flex-col justify-between gap-12'>
                 <div className=' flex flex-col gap-6'>
                     <div className=' flex flex-col gap-3'>
                         <h1 className=' text-xl font-semibold'>Functionality</h1>
@@ -28,11 +29,11 @@ export default function HowItWorks() {
                 </div>
                 <div className=' flex flex-row items-center gap-16'>
                     <div className=' w-3/5'>
-                        <GetInTouch fullWidth label='View our product' link='' />
+                        <CustomButton fullWidth label='View our product' link='' />
                     </div>
                     <div className=' flex flex-row gap-10'>
-                        <a href="" className=' flex justify-center items-center w-14 h-14 bg-gray-300 rounded-full'><img src={Arrow} alt="" className=' w-5' /></a>
-                        <a href="" className=' flex justify-center items-center w-14 h-14 bg-gray-300 rounded-full'><img src={Arrow} alt="" className=' w-5' /></a>
+                        <a href="" className=' flex justify-center items-center w-14 h-14 bg-gray-300 rounded-full'><img src={LeftArrow} alt="" className=' w-5' /></a>
+                        <a href="" className=' flex justify-center items-center w-14 h-14 bg-gray-300 rounded-full'><img src={RightArrow} alt="" className=' w-5' /></a>
                     </div>
                 </div>
             </div>

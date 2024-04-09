@@ -1,4 +1,4 @@
-import GetInTouch from "./GetInTouch";
+import CustomButton from "./GetInTouch";
 
 export default function MailingList() {
     return <div className=" bg-off-white bg-arrow-background bg-cover flex flex-col justify-between lg:justify-evenly lg:flex-row py-32 gap-16 text-brand-blue">
@@ -17,7 +17,7 @@ export default function MailingList() {
                 </div>
                 <textarea placeholder="Send a message..." className=" h-52 align-top  p-6 rounded-3xl" />
             </div>
-            <GetInTouch fullWidth label="Submit" link="" />
+            <CustomButton fullWidth label="Submit" link="" />
         </form>
     </div>
 }

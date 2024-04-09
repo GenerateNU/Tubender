@@ -1,4 +1,4 @@
-import GetInTouch from './GetInTouch';
+import CustomButton from './GetInTouch';
 import TubenderLogo from '../images/new_logo.svg'
 
 export default function Navbar() {
@@ -8,12 +8,12 @@ export default function Navbar() {
                 <img src={TubenderLogo} alt="" className=' h-7' />
                 <h1 className=' text-brand-blue text-2xl'>tubender</h1>
             </div>
-            <div className=' flex flex-row gap-3'>
+            <div className=' hidden lg:flex flex-row gap-3'>
                 <a href="" className=' text-brand-blue-light text-lg font-semibold px-5'>Company</a>
                 <a href="" className=' text-brand-blue-light text-lg font-semibold px-5'>Products</a>
                 <a href="" className=' text-brand-blue-light text-lg font-semibold px-5'>Projects</a>
             </div>
         </div>
-        <GetInTouch label='Get in touch' link='' />
+        <CustomButton label='Get in touch' link='' />
     </div>
 }

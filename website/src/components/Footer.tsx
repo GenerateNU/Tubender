@@ -2,10 +2,10 @@ import Twitter from '../images/twitter.svg'
 import Facebook from '../images/facebook.svg'
 import Instagram from '../images/instagram.svg'
 import Logo from '../images/new_logo.svg'
-import GetInTouch from './GetInTouch'
+import CustomButton from './GetInTouch'
 
 export default function Footer() {
-    return <div className='w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-between p-12 lg:p-24 gap-32 text-brand-white bg-brand-blue-dark bg-opacity-85 bg-blend-darken bg-splash-background bg-cover'>
+    return <div className='w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-between p-12 lg:p-24 gap-32 text-brand-white bg-gradient-to-br from-[#272932] via-[#353A4E] to-[#272932]'>
         <div className=' flex flex-col gap-10'>
             <div className=' flex flex-row gap-4'>
                 <img src={Logo} alt="" className=' w-10' />
@@ -14,7 +14,7 @@ export default function Footer() {
             <h2 className=' font-semibold text-2xl'>Subscribe to our Newsletter</h2>
             <h3 className=' text-gray-400'>Subscribe to learn about our latest endeavors, news and updates.</h3>
             <input type="email" placeholder="Email" className=" p-6 rounded-3xl bg-brand-blue text-lg text-white" />
-            <GetInTouch fullWidth label='Subscribe' link='' />
+            <CustomButton fullWidth label='Subscribe' link='' />
         </div>
         <div>
             <h3 className=' text-2xl font-semibold'>Company</h3>
