@@ -11,6 +11,8 @@ module.exports = {
             'light': '#778DA9',
             DEFAULT: '#2D3142',
             'dark': '#272932',
+            'temp': '#008CFF',
+            'baby': '#95CFFF',
           },
           'orange': '#EB5E28',
           'white': {

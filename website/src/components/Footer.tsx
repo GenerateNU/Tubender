@@ -1,20 +1,20 @@
 import Twitter from '../images/twitter.svg'
 import Facebook from '../images/facebook.svg'
 import Instagram from '../images/instagram.svg'
-import Logo from '../images/logo.svg'
+import Logo from '../images/new_logo.svg'
+import GetInTouch from './GetInTouch'
 
 export default function Footer() {
     return <div className='w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-between p-12 lg:p-24 gap-32 text-brand-white bg-brand-blue-dark bg-opacity-85 bg-blend-darken bg-splash-background bg-cover'>
         <div className=' flex flex-col gap-10'>
             <div className=' flex flex-row gap-4'>
-                <img src={Logo} alt="" />
-                <h1 className=' text-5xl font-semibold'>tubender</h1>
+                <img src={Logo} alt="" className=' w-10' />
+                <h1 className=' text-4xl'>tubender</h1>
             </div>
-            <div className='flex flex-row gap-6'>
-                <img src={Facebook} alt="" />
-                <img src={Twitter} alt="" />
-                <img src={Instagram} alt="" />
-            </div>
+            <h2 className=' font-semibold text-2xl'>Subscribe to our Newsletter</h2>
+            <h3 className=' text-gray-400'>Subscribe to learn about our latest endeavors, news and updates.</h3>
+            <input type="email" placeholder="Email" className=" p-6 rounded-3xl bg-brand-blue text-lg text-white" />
+            <GetInTouch fullWidth label='Subscribe' link='' />
         </div>
         <div>
             <h3 className=' text-2xl font-semibold'>Company</h3>
@@ -41,6 +41,11 @@ export default function Footer() {
                 <li className=' text-lg text-off-white'><a href="">Download Tubender app</a></li>
                 <li className=' text-lg text-off-white'><a href="">Download Tubender software</a></li>
                 <li className=' text-lg text-off-white'><a href="">Download Tubender manual</a></li>
+                <div className='flex flex-row gap-6 pt-4'>
+                    <img src={Facebook} alt="" />
+                    <img src={Twitter} alt="" />
+                    <img src={Instagram} alt="" />
+                </div>
             </ul>
         </div>
     </div>
