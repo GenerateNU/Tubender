@@ -29,12 +29,11 @@ export default function WhyTubender() {
                     <p className=' text-2xl text-brand-blue'>Our mission at Tubender is to democratize manufacturing by making automatic metal tube bending machines smaller, more affordable, and easier to use. We empower makers of all experience levels to create incredible products with precision and accessibility, ensuring that technical expertise is never a barrier.</p>
                     <CustomButton label='Our projects' link='' />
                 </div>
-                <div className=' grid grid-cols-2 w-full xl:w-1/2 gap-28'>
+                <div className=' grid grid-cols-2 w-full xl:w-1/2 gap-28 pr-8'>
                     <InfoCell symbol={Complex} title="Complex" body="Tubender allows complex shapes via software-controlled freeform bending with CAD." />
                     <InfoCell symbol={Automatic} title="Automatic" body="Automated bending streamlines production, reducing labor with software control." />
                     <InfoCell symbol={Portable} title="Portable" body="Our portability empowers users to bend tubes anywhere, optimizing workspace flexibility and convenience." />
                     <InfoCell symbol={Affordable} title="Affordable" body="Tubender's affordability democratizes tube bending, making CNC technology accessible to small businesses and hobbyists." />
-
                 </div>
             </div>
             <div className=" flex flex-row flex-wrap xl:flex-nowrap gap-36">

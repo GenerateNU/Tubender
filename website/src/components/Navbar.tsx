@@ -2,7 +2,7 @@ import CustomButton from './GetInTouch';
 import TubenderLogo from '../images/new_logo.svg'
 
 export default function Navbar() {
-    return <div className=" w-full h-28 px-6 pl-8 rounded-3xl bg-white flex flex-row justify-between items-center">
+    return <div className=" w-full p-6 pl-8 rounded-3xl bg-white flex flex-col gap-6 lg:flex-row justify-between items-center">
         <div className=' flex flex-row gap-14'>
             <div className=' flex flex-row items-center gap-2'>
                 <img src={TubenderLogo} alt="" className=' h-7' />

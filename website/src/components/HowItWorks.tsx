@@ -27,8 +27,8 @@ export default function HowItWorks() {
                         <p className=' text-white-hover text-lg'>This step ensures accuracy and reduces the likelihood of errors during the bending process. It empowers users to create custom tubes tailored to their specific needs, whether for functional or artistic purposes.</p>
                     </div>
                 </div>
-                <div className=' flex flex-row items-center gap-16'>
-                    <div className=' w-3/5'>
+                <div className=' flex flex-col lg:flex-row items-center gap-16'>
+                    <div className=' w-full lg:w-3/5'>
                         <CustomButton fullWidth label='View our product' link='' />
                     </div>
                     <div className=' flex flex-row gap-10'>
