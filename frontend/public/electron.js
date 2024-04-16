@@ -76,6 +76,28 @@ function createWindow() {
     }
   });
 
+  ipcMain.on('submit-form', (event, formData) => {
+
+    const outputPath = path.join(app.getPath('downloads'), 'output_gcode');
+    const dataStr = JSON.stringify(formData);
+    const executablePath = path.join(__dirname, '../../build/manual_input_to_gcode');
+    const executableArguments = [outputPath, dataStr];
+    
+    try {
+      const result = spawnSync(executablePath, executableArguments, { stdio: 'inherit' });
+      console.log('Execution result:', result);
+      
+      if (result.error) {
+        throw result.error;
+      }
+  
+      event.reply('execution-success', 'Data processed successfully.');
+    } catch (error) {
+      console.error('Error executing the C++ executable:', error);
+      event.reply('execution-failure', 'Failed to process data.');
+    }
+  });
+
   mainWindow.on('closed', () => (mainWindow = null));
 }
 
