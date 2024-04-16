@@ -9,7 +9,6 @@ import InputForm from './pages/InputForm';
 import CreateDesign from './pages/CreateDesign';
 import DownloadCadConversion from './pages/DownloadCadConversion';
 import Onboarding from './pages/Onboarding';
-import { JoyrideTest } from './pages/JoyrideTest';
 
 function App() {
   return (
