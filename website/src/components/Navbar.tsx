@@ -9,7 +9,7 @@ export default function Navbar() {
                 <h1 className=' text-brand-blue text-2xl'>tubender</h1>
             </div>
             <div className=' hidden lg:flex flex-row gap-3'>
-                <a href="" className=' text-brand-blue-light text-lg font-semibold px-5'>Company</a>
+                <a href="" className=' text-brand-blue-light text-lg font-semibold px-5'>About Us</a>
                 <a href="" className=' text-brand-blue-light text-lg font-semibold px-5'>Products</a>
                 <a href="" className=' text-brand-blue-light text-lg font-semibold px-5'>Projects</a>
             </div>
