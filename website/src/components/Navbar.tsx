@@ -1,5 +1,7 @@
 import CustomButton from './GetInTouch';
 import TubenderLogo from '../images/new_logo.svg'
+import AboutPage from './AboutPage';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
     return <div className=" w-full p-6 pl-8 rounded-3xl bg-white flex flex-col gap-6 lg:flex-row justify-between items-center">
@@ -10,7 +12,9 @@ export default function Navbar() {
             </div>
             <div className=' hidden lg:flex flex-row gap-3'>
                 <a href="" className=' text-brand-blue-light text-lg font-semibold px-5'>About Us</a>
-                <a href="" className=' text-brand-blue-light text-lg font-semibold px-5'>Products</a>
+                <Link to="/product-purchase" className='text-brand-blue-light text-lg font-semibold px-5'>
+                    <h1>Products</h1>
+                </Link>
                 <a href="" className=' text-brand-blue-light text-lg font-semibold px-5'>Projects</a>
             </div>
         </div>

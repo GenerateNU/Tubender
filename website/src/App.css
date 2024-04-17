@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Inter', sans-serif;
 }
 
 .App-logo {
@@ -27,6 +28,112 @@
 .App-link {
   color: #61dafb;
 }
+
+:root {
+  --brand-temp-teal: #00ADB5;
+  --white-hover: #DBE4EF;
+}
+
+
+.bgAnvil {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white-hover);
+  background-image: url('AnvilClose3Flipped.png');
+  background-size: contain;
+  background-position:100% 50px;
+  background-repeat: no-repeat;
+}
+
+
+.bigWordmark {
+  margin-bottom: 10%;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.horizontal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+}
+.textbox-col {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  padding-top: 2%;
+  padding-bottom: 5%; 
+  padding-left: 5%; 
+  padding-right: 5%; 
+  box-sizing: border-box; /* Include padding in the width calculation */
+
+}
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 30%;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5%;
+}
+.text-left-align {
+  text-align: left;
+}
+.text-header {
+  font-size: 48px;
+  font-weight: 400;
+  margin-bottom: 5%;
+
+}
+.text-par {
+  font-size: 32px;
+  margin-bottom: 5%;
+}
+.gray-rounded-rectangle {
+  background-color: var(--white-hover);
+  border-radius: 20px;
+  padding-top: 2%;
+  padding-bottom: 5%; 
+  padding-left: 5%; 
+  padding-right: 5%; 
+  margin: 2%;
+  flex: 1;
+}
+
+.bg-white {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+.button-brand-temp-teal {
+  background-color: var(--brand-temp-teal);
+  color: white; 
+  border-radius: 16px; 
+  width: 100%;
+  border: none;
+  padding: 16px 24px; 
+  font-size: 20px; 
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+
+}
+
+.button:hover {
+  opacity: 0.75;
+}
+
 
 @keyframes App-logo-spin {
   from {
