@@ -40,7 +40,7 @@ function createWindow() {
   global.executeBackendScriptSync = (fileName) => {
     try {
       const outputPath = path.join(app.getPath('downloads'), 'output_gcode');
-      const scriptPath = path.join(__dirname, '../../build/cad_to_gcode');
+      const scriptPath = path.join(__dirname, '../../backend/build/cad_to_gcode');
       console.log('Executing script at path:', scriptPath);
       const scriptArguments = [fileName, outputPath];
       // Spawn the process with parameters
@@ -80,7 +80,7 @@ function createWindow() {
 
     const outputPath = path.join(app.getPath('downloads'), 'output_gcode');
     const dataStr = JSON.stringify(formData);
-    const executablePath = path.join(__dirname, '../../build/manual_input_to_gcode');
+    const executablePath = path.join(__dirname, '../../backend/build/manual_input_to_gcode');
     const executableArguments = [outputPath, dataStr];
     
     try {
