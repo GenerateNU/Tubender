@@ -1,5 +1,3 @@
-import React from 'react'
-
 function Button(props: { label: string, handleClick: () => void, customClassName?: string }) {
     const className = props.customClassName || '';
     return (
