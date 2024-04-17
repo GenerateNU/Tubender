@@ -1,5 +1,7 @@
-import PersonalInfoForm from './PersonalInfoForm';
-import BigGrayWordmark from './BigGrayWordmarkSVG';
+import PersonalInfoForm from '../PersonalInfoForm';
+import BigGrayWordmark from '../BigGrayWordmarkSVG';
+import Footer from './Footer';
+import MailingList from './MailingList';
 
 function ProductPurchasePage() {
   return (
@@ -10,7 +12,7 @@ function ProductPurchasePage() {
             <div className='bigWordmark'>
               <BigGrayWordmark />
             </div>
-            <PersonalInfoForm/>
+              <PersonalInfoForm/>
           </div>
         </div>
       </div>
@@ -35,6 +37,9 @@ function ProductPurchasePage() {
             <p className='text-par'>This machine comes in at around $100,000, which is an incredible request for smaller businesses and hobbyists. When creating Tubender, it was incredibly important to keep under budget, to show that a free form tube bender could be built for a fraction of the cost of the other. This also opens the customer base drastically, as there is a much smaller investment needed to purchase Tubender’s machine.</p>
         </div>
       </div>
+    </div>
+    <div>
+      <Footer />
     </div>
   </div>
   );
