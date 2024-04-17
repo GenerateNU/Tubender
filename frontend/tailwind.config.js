@@ -15,7 +15,7 @@ module.exports = {
           'orange': '#EB5E28',
           'white': '#FFFFFF',
           'light-grey': '#C4C4C4',
-          'temp-teal': '#00ADB5',
+          'teal': '#00ADB5',
         },
         'error': {
           'red': '#CA0707'
