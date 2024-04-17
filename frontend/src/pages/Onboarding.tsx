@@ -9,12 +9,14 @@ import PrepareTube from '../components/Onboarding/PrepareTube';
 function Onboarding() {
     const [currentPage, setCurrentPage] = useState(0)
 
+    const incrementPage = () => setCurrentPage(currentPage + 1)
+
     const pages = [
-        <SplashScreen stateChanger={() => setCurrentPage(currentPage + 1)} />,
-        <QuickStartTitleScreen stateChanger={() => setCurrentPage(currentPage + 1)} />,
-        <StartMachine stateChanger={() => setCurrentPage(currentPage + 1)} />,
-        <PrepareTube stateChanger={() => setCurrentPage(currentPage + 1)} />,
-        <QuickStartEndScreen stateChanger={() => setCurrentPage(currentPage + 1)} />,
+        <SplashScreen stateChanger={incrementPage} />,
+        <QuickStartTitleScreen stateChanger={incrementPage} />,
+        <StartMachine stateChanger={incrementPage} />,
+        <PrepareTube stateChanger={incrementPage} />,
+        <QuickStartEndScreen stateChanger={incrementPage} />,
     ]
 
     return (

@@ -20,7 +20,7 @@ module.exports = {
             'hover': '#DBE4EF'
           },
           'light-grey': '#C4C4C4',
-          'temp-teal': '#00ADB5',
+          'teal': '#00ADB5',
         },
         'error': {
           'red': '#CA0707'
