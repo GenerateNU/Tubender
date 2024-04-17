@@ -1,12 +1,15 @@
 import PersonalInfoForm from '../PersonalInfoForm';
 import BigGrayWordmark from '../BigGrayWordmarkSVG';
 import Footer from './Footer';
-import MailingList from './MailingList';
+import Navbar from './Navbar';
 
 function ProductPurchasePage() {
   return (
     <div>
       <div className='bgAnvil'>
+      <div className=' pt-14 px-9 drop-shadow-md'>
+            <Navbar />
+        </div>
         <div className='container'>
           <div className='formContainer'>ˆ
             <div className='bigWordmark'>
