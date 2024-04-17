@@ -72,6 +72,8 @@ int main(int argc, char *argv[]) {
 
         std::vector<Bend> bends;
 
+        std::cout << "Parsing input data..." << std::endl;
+
         for (const auto& item : j["bends"]) {
             Bend bend;
             bend.tubeLengthBeforeBend = item["straightTubeBefore"]["value"];
