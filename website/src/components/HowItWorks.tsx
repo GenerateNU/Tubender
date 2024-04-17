@@ -29,7 +29,7 @@ export default function HowItWorks() {
                 </div>
                 <div className=' flex flex-col lg:flex-row items-center gap-16'>
                     <div className=' w-full lg:w-3/5'>
-                        <CustomButton fullWidth label='View our product' link='' />
+                        <CustomButton fullWidth label='View our product' link='/product-purchase' />
                     </div>
                     <div className=' flex flex-row gap-10'>
                         <a href="" className=' flex justify-center items-center w-14 h-14 bg-gray-300 rounded-full'><img src={LeftArrow} alt="" className=' w-5' /></a>
