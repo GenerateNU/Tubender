@@ -1,9 +1,9 @@
 import React from 'react';
-import AboutPage from './components/AboutPage';
+import AboutPage from './pages/MainPage';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ProductPurchasePage from './components/ProductPurchasePage';
 import ProjectsPage from './components/ProjectsPage';
+import ProductPurchasePage from './pages/ProductPurchasePage';
 
 const App: React.FC = () => {
   return (

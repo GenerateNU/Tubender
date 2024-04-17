@@ -19,7 +19,7 @@ export default function Footer() {
         <div>
             <h3 className=' text-2xl font-semibold'>Company</h3>
             <ul className=' flex flex-col gap-3 pt-6'>
-                <li className=' text-lg text-off-white'><a href="">About us</a></li>
+                <li className=' text-lg text-off-white'><a href="/">About us</a></li>
                 <li className=' text-lg text-off-white'><a href="">Brand values</a></li>
                 <li className=' text-lg text-off-white'><a href="">Privacy policy</a></li>
                 <li className=' text-lg text-off-white'><a href="">Terms & conditions</a></li>

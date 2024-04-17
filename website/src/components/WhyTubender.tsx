@@ -41,7 +41,7 @@ export default function WhyTubender() {
                 <div className=" flex flex-col gap-11">
                     <h2 className=' text-5xl font-semibold'>Why Tubender?</h2>
                     <p className=' text-lg text-brand-blue'>Tubender offers an innovative solution for precision metal tube bending, catering to small businesses, contractors, and hobbyists. Our portable CNC machines eliminate the need for specialized tooling, providing unparalleled flexibility at a fraction of the cost. Tubender empowers workshops to produce custom tubes in-house.</p>
-                    <CustomButton label='View product' link='' />
+                    <CustomButton label='View product' link='/product-purchase' />
                 </div>
             </div>
         </div>
