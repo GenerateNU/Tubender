@@ -33,8 +33,8 @@ const FileUploader: React.FC = () => {
   return (
     <div>
       <Button label='Upload CAD File'
-       handleClick={handleOpenFileDialog}
-       customColors='bg-brand-temp-teal text-brand-white hover:bg-opacity-75' />
+        handleClick={handleOpenFileDialog}
+        customColors='bg-brand-teal text-brand-white hover:bg-opacity-75' />
     </div>
   );
 };

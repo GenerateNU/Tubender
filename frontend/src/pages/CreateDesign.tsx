@@ -7,24 +7,24 @@ import Navbar from "../components/Navbar";
 
 function CreateDesign() {
     return (
-        <>
-        <Navbar/>
-        <div className='w-full h-screen bg-off-white flex flex-col justify-center items-center gap-4'>
-            <StepWrapper title="Welcome">
-                <Link to="/create/custom">
-                    <Button label='Create Custom Bend'
-                     handleClick={() => console.log('button')}
-                     customColors='bg-brand-temp-teal text-brand-white hover:bg-opacity-75' />
-                </Link>
+        <div>
+            <Navbar />
+            <div className='w-full h-screen bg-off-white flex flex-col justify-center items-center gap-4'>
+                <StepWrapper title="Welcome">
+                    <Link to="/create/custom">
+                        <Button label='Create Custom Bend'
+                            handleClick={() => console.log('button')}
+                            customColors='bg-brand-teal text-brand-white hover:bg-opacity-75' />
+                    </Link>
                     <FileUploader />
-                <Link to="/onboarding">
-                    <Button label='Help'
-                        handleClick={() => console.log('button')}
-                        customColors='bg-brand-temp-teal text-brand-white hover:bg-opacity-75' />
-                </Link>
-            </StepWrapper>
+                    <Link to="/onboarding">
+                        <Button label='Help'
+                            handleClick={() => console.log('button')}
+                            customColors='bg-brand-teal text-brand-white hover:bg-opacity-75' />
+                    </Link>
+                </StepWrapper>
+            </div>
         </div>
-        </>
     );
 }
 
