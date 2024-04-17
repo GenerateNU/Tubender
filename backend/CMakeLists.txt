@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 set(OpenCASCADE_DIR "/usr/lib/cmake/opencascade/")
 find_package(OpenCASCADE REQUIRED)
 include_directories("/usr/include/opencascade/")
+include_directories("${PROJECT_SOURCE_DIR}/dependencies")
 
 add_executable(cad_to_gcode
     # src/cad_to_gcode.cpp
@@ -27,3 +28,4 @@ add_executable(manual_input_to_gcode src/manual_input_to_gcode.cpp)
 # target_link_libraries(tangent_vectors_geom_bspline ${OpenCASCADE_LIBRARIES})
 # target_link_libraries(step_to_topo ${OpenCASCADE_LIBRARIES})
 target_link_libraries(cad_to_gcode ${OpenCASCADE_LIBRARIES})
+target_link_libraries(manual_input_to_gcode ${OpenCASCADE_LIBRARIES})

@@ -17,6 +17,11 @@ function CreateDesign() {
                      customColors='bg-brand-temp-teal text-brand-white hover:bg-opacity-75' />
                 </Link>
                     <FileUploader />
+                <Link to="/onboarding">
+                    <Button label='Help'
+                        handleClick={() => console.log('button')}
+                        customColors='bg-brand-temp-teal text-brand-white hover:bg-opacity-75' />
+                </Link>
             </StepWrapper>
         </div>
         </>

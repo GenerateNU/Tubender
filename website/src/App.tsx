@@ -1,10 +1,15 @@
+// src/App.tsx
+
 import React from 'react';
+import AboutPage from './components/AboutPage';
 import logo from './logo.svg';
 import './App.css';
 import ProductPurchasePage from './ProductPurchasePage';
 
-function App() {
+const App: React.FC = () => {
   return (
+    <div className=" h-full w-full">
+      <AboutPage />
     <div className="App">
     <div>
       <ProductPurchasePage />
@@ -25,6 +30,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;
