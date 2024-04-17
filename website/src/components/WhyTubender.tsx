@@ -27,7 +27,7 @@ export default function WhyTubender() {
                 <div className=' w-full xl:w-1/3 flex flex-col gap-11'>
                     <h2 className=' text-5xl font-semibold text-brand-blue-dark'>What we do</h2>
                     <p className=' text-2xl text-brand-blue'>Our mission at Tubender is to democratize manufacturing by making automatic metal tube bending machines smaller, more affordable, and easier to use. We empower makers of all experience levels to create incredible products with precision and accessibility, ensuring that technical expertise is never a barrier.</p>
-                    <CustomButton label='Our projects' link='' />
+                    <CustomButton label='Our projects' link='/projects' />
                 </div>
                 <div className=' grid grid-cols-2 w-full xl:w-1/2 gap-28 pr-8'>
                     <InfoCell symbol={Complex} title="Complex" body="Tubender allows complex shapes via software-controlled freeform bending with CAD." />

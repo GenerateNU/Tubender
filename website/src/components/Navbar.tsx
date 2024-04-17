@@ -12,11 +12,15 @@ export default function Navbar() {
                 </Link>
             </div>
             <div className=' hidden lg:flex flex-row gap-3'>
-                <a href="" className=' text-brand-blue-light text-lg font-semibold px-5'>About Us</a>
+            <Link to="/" className='text-brand-blue-light text-lg font-semibold px-5'>
+                    <h1>About Us</h1>
+                </Link>
                 <Link to="/product-purchase" className='text-brand-blue-light text-lg font-semibold px-5'>
                     <h1>Products</h1>
                 </Link>
-                <a href="" className=' text-brand-blue-light text-lg font-semibold px-5'>Projects</a>
+                <Link to="/projects" className='text-brand-blue-light text-lg font-semibold px-5'>
+                    <h1>Projects</h1>
+                </Link>
             </div>
         </div>
         <CustomButton label='Get in touch' link='' />

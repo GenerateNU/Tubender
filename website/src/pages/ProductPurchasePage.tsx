@@ -26,14 +26,15 @@ function ProductPurchasePage() {
       </div>
       <div className='bg-off-white py-10 flex flex-col items-center'>
   <h1 className='mb-8 text-4xl font-bold'>Our Main Features</h1>
-  <div className='flex flex-col items-center'>
-    <img src={Complex} alt="" className='my-4'/>
-    <img src={Automatic} alt="" className='my-4'/>
-    <img src={Portable} alt="" className='my-4'/>
-    <img src={Affordable} alt="" className='my-4'/>
+    <div className='flex flex-col items-center'>
+      <img src={Complex} alt="" className='my-4'/>
+      <img src={Automatic} alt="" className='my-4'/>
+      <img src={Portable} alt="" className='my-4'/>
+      <img src={Affordable} alt="" className='my-4'/>
+    </div>
+    </div>
+        <Footer/>
   </div>
-</div>
-      </div>
   );
 }
 

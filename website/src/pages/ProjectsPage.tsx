@@ -1,9 +1,9 @@
 import CaseStudy from '../images/case_study.svg'
 import GradientBackground from '../images/gradient_background.png'
 import OurProjects from '../images/our_projects.svg'
-import Navbar from './Navbar'
-import Footer from './Footer'
-import MailingList from './MailingList'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+import MailingList from '../components/MailingList'
 
 function Header() {
     return (
