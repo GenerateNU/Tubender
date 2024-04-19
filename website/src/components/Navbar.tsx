@@ -16,7 +16,9 @@ export default function Navbar() {
                 <Link to="/product-purchase" className='text-brand-blue-light text-lg font-semibold px-5'>
                     <h1>Products</h1>
                 </Link>
-                <a href="" className=' text-brand-blue-light text-lg font-semibold px-5'>Projects</a>
+                <Link to="/projects" className='text-brand-blue-light text-lg font-semibold px-5'>
+                    <h1>Projects</h1>
+                </Link>           
             </div>
         </div>
         <CustomButton label='Get in touch' link='' />
