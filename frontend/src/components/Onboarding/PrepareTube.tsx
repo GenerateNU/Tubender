@@ -8,7 +8,7 @@ function PrepareTube(props: { stateChanger: () => void }) {
     return (
         <div className=' w-full lg:w-auto h-full flex flex-col lg:flex-row items-end justify-start bg-off-white'>
             <Navbar />
-            <div className=' flex flex-col gap-4 text-left lg:pb-32 pl-8 pt-16 lg:pl-32 z-50 w-full lg:w-1/2'>
+            <div className=' flex flex-col gap-4 text-left lg:pb-16 pl-8 pt-16 lg:pl-32 z-50 w-full lg:w-1/2'>
                 <h1 className=' text-brand-blue-dark text-5xl pb-4'>Preparing the tubing</h1>
                 <h2 className=' text-2xl text-brand-blue-light'>Straightening and Cutting the Tube</h2>
                 <div className=' text-brand-teal text-lg text-balance'>
