@@ -8,7 +8,8 @@ using json = nlohmann::json;
 
 
 std::string generateAnvilPosition(const int bendRadius) {
-        return "8.907";   
+    float anvil = (0.7093879*bendRadius + 45.2398311)/(bendRadius + 0.9262318);
+    return std::to_string(anvil);   
 }
 
 void getAbsolutePositionGCode(std::ofstream &outFile){
